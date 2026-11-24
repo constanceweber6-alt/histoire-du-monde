@@ -35,7 +35,13 @@ HISTOIRE.carte = (function () {
     'grece': /^(Greece)$/,
     'irak': /^(Abbasid Caliphate|Mesopotamia \(GB\)|Iraq)$/,
     'kazakhstan': /^(Kimek-Kipchak khaganate|Cuman-Kipchak confederation|White Horde|Kazakhstan)$/,
-    'ouzbekistan': /^(Khwarazmian dynasty|Khiva Khanate|Bokhara Khanate|Uzbekistan)$/
+    'ouzbekistan': /^(Khwarazmian dynasty|Khiva Khanate|Bokhara Khanate|Uzbekistan)$/,
+    'israel-palestine': /^(Judea|Mandatory Palestine \(GB\)|Israel|Palestine)$/,
+    'syrie': /^(Umayyad Caliphate|Syria)$/,
+    'arabie-saoudite': /^(Hejaz|Nejd|Arabia|Arabia \(Nejd\)|Saudi Arabia)$/,
+    'pays-bas': /^(Frisians|Habsburg Netherlands|Dutch Republic|Batavian Republic|Netherlands)$/,
+    'suede': /^(Swedes|Swedes and Goths|Sweden|Sweden\u2013Norway)$/,
+    'hongrie': /^(Magyars|Hungary|Kingdom of Hungary|Imperial Hungary|Austria Hungary|Austro-Hungarian Empire)$/
   };
 
   function rattache(f) {

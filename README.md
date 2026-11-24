@@ -9,7 +9,7 @@ Ce site raconte l'histoire des pays d'Europe et d'Asie depuis l'an 1, phase par 
 - **Pages pays** : pour chaque phase, le récit, ce qui fait consensus, les débats (positions opposées puis état actuel de la recherche), ce qu'on raconte moins, les acteurs de la période (plus de 500 personnes, connues ou oubliées) et des repères datés.
 - **Pages régions** : Europe de l'Ouest, Europe du Sud, Europe de l'Est, Asie de l'Ouest, Asie centrale, Asie de l'Est, Asie du Sud, Asie du Sud-Est, avec un débat transversal par région.
 
-Pays disponibles : France, Royaume-Uni, Allemagne, Italie, Espagne, Grèce, Pologne, Ukraine, Russie, Chine, Japon, Corée, Mongolie, Inde, Pakistan, Afghanistan, Iran, Turquie, Irak, Kazakhstan, Ouzbékistan, Birmanie, Thaïlande, Cambodge, Vietnam, Indonésie, Philippines.
+Pays disponibles : France, Royaume-Uni, Allemagne, Pays-Bas, Suède, Italie, Espagne, Grèce, Pologne, Hongrie, Ukraine, Russie, Chine, Japon, Corée, Mongolie, Inde, Pakistan, Afghanistan, Iran, Turquie, Irak, Syrie, Israël et Palestine, Arabie saoudite, Kazakhstan, Ouzbékistan, Birmanie, Thaïlande, Cambodge, Vietnam, Indonésie, Philippines.
 
 ## Lancer le site en local
 
@@ -44,7 +44,7 @@ js/frise.js           frise comparée
 js/particules.js      animation des en-têtes
 data/regions.js       régions et débats transversaux
 data/pays/*.js        contenu des pays
-data/acteurs-*.js     acteurs de chaque phase ([nom, dates, rôle])
+data/acteurs*.js      acteurs de chaque phase ([nom, dates, rôle])
 data/cartes/*.js      frontières simplifiées par année
 tools/cartes.py       script de génération des cartes
 ```
