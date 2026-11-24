@@ -1,6 +1,6 @@
 # Zones grises · Histoire du monde
 
-Un site qui raconte l'histoire des pays d'Europe et d'Asie depuis l'an 1, phase par phase, en montrant ce qui fait consensus, ce qui fait débat et ce qu'on raconte moins. L'idée : l'histoire n'est ni noire ni blanche.
+Ce site raconte l'histoire des pays d'Europe et d'Asie depuis l'an 1, phase par phase, en montrant ce qui fait consensus, ce qui fait débat et ce qu'on raconte moins. L'idée : l'histoire n'est ni noire ni blanche.
 
 ## Ce que contient le site
 
