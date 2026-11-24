@@ -316,6 +316,9 @@ body.sombre .carte { background: var(--noir-3); border-color: #2e2e2e; color: va
 #carte-svg .terre { fill: #262626; stroke: #191919; stroke-width: 0.6; }
 #carte-svg .etat { stroke: #141414; stroke-width: 0.7; transition: fill 0.15s; vector-effect: non-scaling-stroke; }
 #carte-svg .etat:hover { fill: var(--accent) !important; fill-opacity: 0.55; }
+#carte-svg .etat.lien { cursor: pointer; }
+#carte-svg .marqueur { cursor: pointer; outline: none; }
+#carte-svg .marqueur:focus circle.point { fill: var(--blanc); }
 #carte-svg .etat.choisi { fill: var(--blanc) !important; }
 #carte-svg .marqueur circle.halo { fill: var(--accent); opacity: 0.18; }
 #carte-svg .marqueur circle.point { fill: var(--accent); stroke: #0b0b0b; stroke-width: 1.5; cursor: pointer; vector-effect: non-scaling-stroke; }
@@ -362,6 +365,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .carte-info h3 { margin: 4px 0 6px; font-size: 19px; }
 .carte-info p { margin: 0 0 12px; font-size: 14px; }
 .bulle {
+  white-space: pre-line;
   position: fixed; pointer-events: none; z-index: 60;
   background: var(--noir); color: var(--blanc);
   font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 8px;
@@ -424,3 +428,18 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 @media (max-width: 1180px) {
   .carte-credit { display: none; }
 }
+
+/* Arrivee depuis la carte */
+.depuis-carte { margin-bottom: 36px; }
+.depuis-carte-boite {
+  display: flex; gap: 20px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  border: 1px solid var(--accent); background: var(--accent-doux);
+  border-radius: var(--rayon); padding: 18px 22px;
+}
+.depuis-carte-boite h3 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.01em; }
+.depuis-carte-boite p { margin: 0 0 6px; }
+.depuis-carte-boite .surtitre { color: var(--accent); margin-bottom: 6px; }
+.evenements .evt-texte { display: block; font-size: 13.5px; color: var(--gris-3); margin: 2px 0 0 64px; }
+.evenements li.surligne { color: var(--accent); }
+.evenements li.surligne::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.evenements li.surligne .evt-texte { color: #cfeedd; }

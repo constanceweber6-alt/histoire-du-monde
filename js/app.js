@@ -103,8 +103,9 @@
   }
 
   function rendrePhase(p, ph, i) {
-    var evts = (ph.evenements || []).map(function (ev) {
-      return '<li><span class="annee">' + U.esc(U.annee(ev.annee)) + '</span>' + U.esc(ev.titre) +
+    var evts = (ph.evenements || []).map(function (ev, j) {
+      return '<li id="evt-' + i + '-' + j + '"><span class="annee">' + U.esc(U.annee(ev.annee)) + '</span>' + U.esc(ev.titre) +
+        (ev.texte ? '<span class="evt-texte">' + U.esc(ev.texte) + '</span>' : '') +
         (ev.lieu ? '<a class="voir-carte" href="#/carte?annee=' + Math.max(1, ev.annee) + '&pays=' + p.id + '">voir sur la carte</a>' : '') + '</li>';
     }).join('');
     return '<section class="phase" id="phase-' + i + '">' +
@@ -121,7 +122,7 @@
       '</div></section>';
   }
 
-  function fichePays(id, phase) {
+  function fichePays(id, phase, evt, depuis) {
     var p = U.paysParId(id);
     if (!p) return introuvable();
     document.body.className = 'sombre';
@@ -171,7 +172,29 @@
     animer();
     if (phase != null) {
       var cible = document.getElementById('phase-' + phase);
-      if (cible) setTimeout(function () { cible.scrollIntoView(); }, 30);
+      if (cible) {
+        var ph = p.phases[phase];
+        var ev = evt != null && ph ? (ph.evenements || [])[evt] : null;
+        if (depuis != null || ev) {
+          var bandeau = document.createElement('div');
+          bandeau.className = 'depuis-carte conteneur';
+          bandeau.innerHTML =
+            '<div class="depuis-carte-boite">' +
+              '<div><p class="surtitre">' + (ev ? 'Vous avez cliqué sur la carte · ' + U.esc(U.annee(ev.annee)) : 'Depuis la carte · ' + U.esc(U.annee(+depuis))) + '</p>' +
+              '<h3>' + (ev ? U.esc(ev.titre) : U.esc(p.nom + ' en ' + U.annee(+depuis))) + '</h3>' +
+              (ev && ev.texte ? '<p>' + U.esc(ev.texte) + '</p>' : '') +
+              '<p class="discret">' + (ev ? 'Cet événement appartient au chapitre ci-dessous : le récit, les débats et les repères l\'expliquent.' : 'Voici le chapitre de l\'histoire de ce pays qui couvre cette date.') + '</p></div>' +
+              '<a class="bouton bouton-blanc" href="#/carte?annee=' + Math.max(1, +(depuis || (ev && ev.annee) || 1)) + '">← Retour à la carte</a>' +
+            '</div>';
+          cible.insertBefore(bandeau, cible.firstChild);
+        }
+        if (ev) {
+          var li = document.getElementById('evt-' + phase + '-' + evt);
+          if (li) li.classList.add('surligne');
+        }
+        cible.querySelectorAll('.apparait').forEach(function (el) { el.classList.add('vu'); });
+        setTimeout(function () { cible.scrollIntoView(); }, 30);
+      }
     }
   }
 
@@ -229,7 +252,7 @@
     if (nom === 'accueil') accueil();
     else if (nom === 'carte') { document.body.className = 'sombre'; HISTOIRE.carte.afficher(app, params); }
     else if (nom === 'frise') { document.body.className = 'sombre'; HISTOIRE.frise.afficher(app); }
-    else if (nom === 'pays' && chemin[1]) fichePays(chemin[1], chemin[2] != null ? +chemin[2] : null);
+    else if (nom === 'pays' && chemin[1]) fichePays(chemin[1], chemin[2] != null ? +chemin[2] : null, chemin[3] != null ? +chemin[3] : null, params.depuis != null ? params.depuis : null);
     else if (nom === 'pays') listePays();
     else if (nom === 'region') region(chemin[1]);
     else if (nom === 'methode') methode();
