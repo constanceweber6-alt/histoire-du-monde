@@ -92,12 +92,23 @@ HISTOIRE.carte = (function () {
     'soudan': /^(Kushites|Funj|Darfur|Anglo-Egyptian Sudan|Sudan)$/,
     'somalie': /^(Adal|Somalia|British Somaliland|Italian Somaliland)$/,
     'ouganda': /^(Buganda|Bunyoro|Uganda)$/,
+    'estonie': /^(Estonia)$/,
+    'lettonie': /^(Latvia)$/,
+    'lituanie': /^(Lithuania|Poland-Lithuania|Polish\u2013Lithuanian Commonwealth)$/,
+    'slovaquie': /^(Great Moravia|Czechoslovakia|Slovakia)$/,
+    'bulgarie': /^(Danube Bulgars|Bulgars|Bulgar Khanate|Bulgaria)$/,
+    'croatie': /^(Croatian kingdom|Croatia)$/,
+    'bosnie': /^(Bosnia|Bosnia-Herzegovina|Bosnia and Herzegovina)$/,
+    'albanie': /^(Albania)$/,
+    'bielorussie': /^(Principality of Polotsk|White Russia|Byelarus)$/,
+    'moldavie': /^(Moldova)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
   /* Noms ambigus : valables seulement pour certaines annees de carte
      (le royaume du Benin n'est pas l'Etat moderne, l'empire du Ghana n'est pas le Ghana actuel). */
   var PERIODES = {
+    'bulgarie|Bulgars': [800, 9999],
     'mali|Ghana': [0, 1300], 'ghana|Ghana': [1900, 9999],
     'nigeria|Benin': [0, 1800], 'rdc|Congo': [0, 1890]
   };
