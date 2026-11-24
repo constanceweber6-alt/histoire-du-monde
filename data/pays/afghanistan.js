@@ -19,7 +19,24 @@ HISTOIRE.ajouterPays({
         "Les Bouddhas de Bamiyan datent des VIe et VIIe siècles.",
         "Le trésor de Begram montre des échanges entre Rome, l'Inde et la Chine."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Pourquoi les talibans ont-ils détruit les Bouddhas de Bamiyan ?",
+          "positions": [
+            {
+              "titre": "Un acte religieux",
+              "texte": "Les talibans ont justifié la destruction par l'interdiction des idoles dans leur lecture de l'islam.",
+              "qui": "Déclarations du mollah Omar, mars 2001"
+            },
+            {
+              "titre": "Un acte politique",
+              "texte": "La destruction répondait aussi à l'isolement international du régime et visait à défier l'ONU et l'Occident, qui proposaient de financer leur sauvegarde. Les statues étaient restées intactes pendant plus de mille ans d'islam.",
+              "qui": "Jean-Michel Frodon, Finbarr Barry Flood"
+            }
+          ],
+          "etat": "Les chercheurs voient dans la destruction un geste à la fois religieux et politique. Elle a été largement condamnée dans le monde musulman."
+        }
+      ],
       moinsConnu: "Le trésor de Tillia Tepe, 20 000 objets en or d'époque kouchane découverts en 1978, a été caché pendant les guerres par des employés du musée de Kaboul, qui ont gardé le secret jusqu'en 2003.",
       evenements: [
         { annee: 50, titre: "Begram, capitale kouchane", lieu: [35.0, 69.25] },
@@ -40,7 +57,24 @@ HISTOIRE.ajouterPays({
         "Ghazni est une capitale culturelle et politique majeure au XIe siècle.",
         "Les Ghourides, partis d'Afghanistan, fondent la domination musulmane durable sur le nord de l'Inde."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Mahmud de Ghazni : héros ou pillard ?",
+          "positions": [
+            {
+              "titre": "Un héros de l'islam",
+              "texte": "En Afghanistan et au Pakistan, Mahmud est célébré comme un grand souverain musulman et un mécène de la culture persane.",
+              "qui": "Récits nationaux afghan et pakistanais"
+            },
+            {
+              "titre": "Un pilleur de temples",
+              "texte": "En Inde, il est surtout le destructeur de Somnath et d'autres temples, symbole des invasions venues du nord-ouest.",
+              "qui": "Historiographie nationaliste indienne"
+            }
+          ],
+          "etat": "Les historiens décrivent un souverain de son temps, mécène à Ghazni et prédateur en Inde. Sa mémoire illustre la façon dont un même personnage peut être lu de manière opposée selon les pays."
+        }
+      ],
       moinsConnu: "Balkh, au nord, était surnommée la « mère des cités ». Le poète Rûmî y est né en 1207, avant que sa famille ne fuie l'avancée mongole vers l'Anatolie.",
       evenements: [
         { annee: 663, titre: "Les Arabes à Balkh", lieu: [36.76, 66.9] },
@@ -62,7 +96,24 @@ HISTOIRE.ajouterPays({
         "Kaboul est la base de départ de Babur pour fonder l'Empire moghol.",
         "Les tribus pachtounes deviennent une force politique majeure au XVIIIe siècle."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Les Pachtounes ont-ils toujours dominé l'Afghanistan ?",
+          "positions": [
+            {
+              "titre": "Le peuple fondateur",
+              "texte": "L'État afghan aurait été créé par et pour les Pachtounes, à qui le nom même d'« Afghan » renvoyait à l'origine.",
+              "qui": "Nationalisme pachtoune"
+            },
+            {
+              "titre": "Un pays pluriel",
+              "texte": "Tadjiks, Hazaras, Ouzbeks et d'autres ont joué un rôle central, notamment dans les villes et la culture persane, langue de la cour jusqu'au XXe siècle.",
+              "qui": "Thomas Barfield, historiens tadjiks et hazaras"
+            }
+          ],
+          "etat": "Les historiens soulignent la pluralité du pays. La domination politique pachtoune, réelle depuis le XVIIIe siècle, est l'une des sources des conflits actuels."
+        }
+      ],
       moinsConnu: "Gauhar Shad, épouse de Shah Rukh, a gouverné de fait l'empire timouride et fait construire à Hérat un grand complexe de mosquée et madrasa. Une partie de ses minarets a été détruite par les Britanniques en 1885 pour dégager le champ de tir face à une menace russe.",
       evenements: [
         { annee: 1221, titre: "Destruction de Balkh et Hérat par les Mongols", lieu: [34.35, 62.2] },

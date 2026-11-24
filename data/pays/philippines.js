@@ -144,7 +144,24 @@ HISTOIRE.ajouterPays({
         "Les travailleurs philippins à l'étranger sont un pilier de l'économie.",
         "La création du Bangsamoro en 2019 est une étape majeure du processus de paix dans le Sud."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Les dynasties politiques : démocratie ou oligarchie ?",
+          "positions": [
+            {
+              "titre": "Une démocratie vivante",
+              "texte": "Les Philippins votent librement, les alternances sont régulières et la presse reste combative malgré les menaces.",
+              "qui": ""
+            },
+            {
+              "titre": "Une démocratie des familles",
+              "texte": "Une grande partie des sièges électifs est occupée par quelques dizaines de clans, comme les Marcos, les Aquino ou les Duterte, qui se transmettent le pouvoir.",
+              "qui": "Alfred McCoy, Sheila Coronel"
+            }
+          ],
+          "etat": "Les chercheurs parlent d'une démocratie électorale réelle mais dominée par les dynasties, un trait hérité de la période coloniale."
+        }
+      ],
       moinsConnu: "En 2025, Rodrigo Duterte a été arrêté et remis à la Cour pénale internationale, qui l'accuse de crimes contre l'humanité pour sa campagne antidrogue.",
       evenements: [
         { annee: 1991, titre: "Éruption du Pinatubo, fermeture des bases américaines", lieu: [15.14, 120.35] },

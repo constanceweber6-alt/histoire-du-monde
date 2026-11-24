@@ -19,7 +19,24 @@ HISTOIRE.ajouterPays({
         "Les Khazars ont été une puissance majeure entre le VIIe et le Xe siècle.",
         "Les Varègues scandinaves ont joué un rôle commercial important sur les fleuves russes."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Les Slaves sont-ils les premiers habitants de la Russie ?",
+          "positions": [
+            {
+              "titre": "Un peuple autochtone",
+              "texte": "Les Slaves orientaux auraient occupé ces terres depuis la plus haute Antiquité.",
+              "qui": "Historiographie nationaliste russe et soviétique"
+            },
+            {
+              "titre": "Une installation progressive",
+              "texte": "Les Slaves arrivent du VIe au IXe siècle dans un espace déjà peuplé de Finno-Ougriens, de Baltes, de Goths et de nomades iraniens, avec lesquels ils se mêlent.",
+              "qui": "Archéologues et linguistes"
+            }
+          ],
+          "etat": "L'arrivée progressive des Slaves et le mélange avec d'autres peuples font consensus. De nombreux noms de lieux russes, comme peut-être Moscou, ont une origine finno-ougrienne."
+        }
+      ],
       moinsConnu: "Des milliers de pièces d'argent arabes (dirhams) ont été retrouvées dans les forêts russes et en Scandinavie : la route des fleuves reliait le nord de l'Europe au califat abbasside, notamment par le commerce des fourrures et des esclaves.",
       evenements: [
         { annee: 370, titre: "Les Huns traversent les steppes pontiques", lieu: [47.0, 38.0] },

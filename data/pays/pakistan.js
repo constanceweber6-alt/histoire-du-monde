@@ -81,7 +81,24 @@ HISTOIRE.ajouterPays({
         "Le sikhisme naît au Pendjab au début du XVIe siècle.",
         "Le soufisme a profondément marqué la culture de la région, jusque dans la poésie et la musique."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Les Moghols appartiennent-ils à l'histoire du Pakistan ou de l'Inde ?",
+          "positions": [
+            {
+              "titre": "Un héritage pakistanais",
+              "texte": "Les Moghols, souverains musulmans, et Lahore, leur capitale, sont au cœur de l'identité pakistanaise.",
+              "qui": "Récit national pakistanais"
+            },
+            {
+              "titre": "Un héritage indien",
+              "texte": "L'empire était centré sur Delhi et Agra. Le Taj Mahal et le Fort rouge sont en Inde, où une partie du nationalisme hindou rejette pourtant cet héritage.",
+              "qui": "Débats indiens"
+            }
+          ],
+          "etat": "Les historiens rappellent que l'Empire moghol précède les deux États et appartient à tout le sous-continent. Les deux pays en font des lectures sélectives opposées."
+        }
+      ],
       moinsConnu: "Le lieu de naissance de Guru Nanak, Nankana Sahib, se trouve aujourd'hui au Pakistan, tout comme le lieu de sa mort, Kartarpur. Depuis 2019, un corridor sans visa permet aux pèlerins sikhs indiens de s'y rendre.",
       evenements: [
         { annee: 1469, titre: "Naissance de Guru Nanak", lieu: [31.45, 73.71] },

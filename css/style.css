@@ -443,3 +443,21 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .evenements li.surligne { color: var(--accent); }
 .evenements li.surligne::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 10px var(--accent); }
 .evenements li.surligne .evt-texte { color: #cfeedd; }
+
+/* Les acteurs */
+.bloc-titre.acteurs::before { background: transparent; border: 2px solid var(--accent); }
+.acteurs-grille { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.acteur {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: #222; border: 1px solid #2f2f2f; border-radius: var(--rayon);
+  padding: 16px 18px;
+}
+.acteur-initiale {
+  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--blanc); color: var(--noir);
+  font-weight: 800; font-size: 17px;
+}
+.acteur strong { display: block; font-size: 15.5px; line-height: 1.25; }
+.acteur-dates { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--gris-3); margin: 3px 0 6px; }
+.acteur p { margin: 0; font-size: 14px; line-height: 1.5; color: #d4d4d4; }

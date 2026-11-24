@@ -19,7 +19,24 @@ HISTOIRE.ajouterPays({
         "La plus ancienne inscription datée en langue khmère remonte à 611.",
         "Les élites ont adopté des modèles religieux et politiques d'origine indienne."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Le Funan était-il un royaume khmer ?",
+          "positions": [
+            {
+              "titre": "Un royaume khmer",
+              "texte": "Le Funan serait le premier État khmer, et le delta du Mékong une terre khmère depuis l'origine.",
+              "qui": "Historiographie nationaliste cambodgienne"
+            },
+            {
+              "titre": "Une identité incertaine",
+              "texte": "La langue de la population du Funan n'est pas connue avec certitude. Les premières inscriptions en khmer datent du Chenla.",
+              "qui": "Michael Vickery, archéologues"
+            }
+          ],
+          "etat": "La question reste ouverte. Elle est sensible parce qu'elle touche aux revendications sur le delta du Mékong, aujourd'hui vietnamien."
+        }
+      ],
       moinsConnu: "Le delta du Mékong, aujourd'hui vietnamien, a longtemps été khmer. Les Khmers Krom, minorité khmère du sud du Vietnam, en gardent la mémoire.",
       evenements: [
         { annee: 150, titre: "Port d'Oc Eo, Funan", lieu: [10.25, 105.15] },
@@ -167,7 +184,24 @@ HISTOIRE.ajouterPays({
         "Un tribunal mixte, avec l'ONU, a jugé plusieurs dirigeants khmers rouges.",
         "Hun Sen a dirigé le pays pendant près de quarante ans."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Le tribunal khmer rouge : justice rendue ou justice manquée ?",
+          "positions": [
+            {
+              "titre": "Une justice rendue",
+              "texte": "Le tribunal a reconnu le génocide et condamné les principaux dirigeants encore vivants, en associant les victimes comme parties civiles.",
+              "qui": "ONU, associations de victimes"
+            },
+            {
+              "titre": "Une justice tardive et limitée",
+              "texte": "Seules trois personnes ont été condamnées en seize ans, pour plus de 300 millions de dollars. Le gouvernement a bloqué les poursuites contre d'autres responsables, dont certains d'anciens Khmers rouges proches du pouvoir.",
+              "qui": "Juristes, Human Rights Watch"
+            }
+          ],
+          "etat": "Le bilan est jugé important sur le plan historique et symbolique, mais insuffisant sur le plan judiciaire."
+        }
+      ],
       moinsConnu: "Les mines antipersonnel posées pendant les guerres ont blessé ou tué plus de 60 000 Cambodgiens depuis 1979. Le déminage, aidé notamment par des rats détecteurs, se poursuit encore.",
       evenements: [
         { annee: 1991, titre: "Accords de paix de Paris", lieu: [48.86, 2.35] },

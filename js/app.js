@@ -102,6 +102,16 @@
     '</div>';
   }
 
+  function rendreActeurs(p, i) {
+    var liste = (HISTOIRE.acteurs && HISTOIRE.acteurs[p.id] && HISTOIRE.acteurs[p.id][i]) || [];
+    if (!liste.length) return '';
+    return '<div class="bloc-titre acteurs">Les acteurs</div><div class="acteurs-grille apparait">' +
+      liste.map(function (a) {
+        return '<div class="acteur"><span class="acteur-initiale" aria-hidden="true">' + U.esc(a[0].replace(/^(Le |La |Les |L\')/, '').charAt(0)) + '</span>' +
+          '<div><strong>' + U.esc(a[0]) + '</strong><span class="acteur-dates">' + U.esc(a[1]) + '</span><p>' + U.esc(a[2]) + '</p></div></div>';
+      }).join('') + '</div>';
+  }
+
   function rendrePhase(p, ph, i) {
     var evts = (ph.evenements || []).map(function (ev, j) {
       return '<li id="evt-' + i + '-' + j + '"><span class="annee">' + U.esc(U.annee(ev.annee)) + '</span>' + U.esc(ev.titre) +
@@ -118,6 +128,7 @@
         '<ul class="liste-consensus apparait">' + ph.consensus.map(function (c) { return '<li>' + U.esc(c) + '</li>'; }).join('') + '</ul>' +
         ((ph.debats || []).length ? '<div class="bloc-titre debat">Ce qui fait débat</div><div class="apparait">' + ph.debats.map(rendreDebat).join('') + '</div>' : '') +
         (ph.moinsConnu ? '<div class="bloc-titre ombre">Ce qu\'on raconte moins</div><div class="moins-connu apparait">' + U.esc(ph.moinsConnu) + '</div>' : '') +
+        rendreActeurs(p, i) +
         (evts ? '<div class="bloc-titre">Repères</div><ul class="evenements apparait">' + evts + '</ul>' : '') +
       '</div></section>';
   }
@@ -211,6 +222,7 @@
           '<div style="background:#fff;border:1px solid #ddd">Ce qui fait consensus : les faits que presque tous les historiens acceptent.</div>' +
           '<div style="background:linear-gradient(90deg,#fff,#8f8f8f 50%,#111);color:#111">Ce qui fait débat : les interprétations qui s\'opposent, présentées côte à côte, puis l\'état actuel de la recherche.</div>' +
           '<div style="border:1px dashed #999">Ce qu\'on raconte moins : les acteurs, les régions ou les faits souvent laissés hors du récit national.</div>' +
+          '<div style="border:2px solid #00c46a">Les acteurs : trois ou quatre personnes qui ont fait la période, des plus célèbres aux plus oubliées.</div>' +
         '</div>' +
         '<h2>Les choix assumés</h2>' +
         '<ul>' +

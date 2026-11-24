@@ -185,7 +185,24 @@ HISTOIRE.ajouterPays({
         "La Mongolie est restée une démocratie parlementaire, rare en Asie centrale.",
         "L'économie dépend fortement des exportations minières vers la Chine."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Faut-il célébrer Gengis Khan ?",
+          "positions": [
+            {
+              "titre": "Un père de la nation",
+              "texte": "Interdit sous le communisme, Gengis Khan est devenu le symbole de l'identité mongole retrouvée : aéroport, statue géante, billets de banque.",
+              "qui": "État et société mongols depuis 1990"
+            },
+            {
+              "titre": "Un culte ambigu",
+              "texte": "Ce culte sert aussi le nationalisme, une commercialisation du nom et efface la violence des conquêtes, vécue très différemment en Chine, en Iran ou en Russie.",
+              "qui": "Chercheurs et voisins de la Mongolie"
+            }
+          ],
+          "etat": "Les historiens comprennent ce culte comme une réaction à l'interdit soviétique. Il montre comment une même figure peut être fondatrice pour un pays et traumatique pour d'autres."
+        }
+      ],
       moinsConnu: "Le pastoralisme nomade reste vivant : une partie importante de la population élève encore des troupeaux. Mais la sédentarisation dans les quartiers de yourtes d'Oulan-Bator, mal équipés, a fait de la capitale l'une des villes les plus polluées au monde en hiver.",
       evenements: [
         { annee: 1990, titre: "Révolution démocratique", lieu: [47.92, 106.92] },

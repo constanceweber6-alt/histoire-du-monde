@@ -19,7 +19,24 @@ HISTOIRE.ajouterPays({
         "Les Môns et les Pyu ont précédé les Birmans dans les plaines.",
         "Le bouddhisme est arrivé très tôt par les échanges avec l'Inde."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Les Pyu sont-ils les ancêtres des Birmans ?",
+          "positions": [
+            {
+              "titre": "Une continuité",
+              "texte": "Les Pyu auraient été absorbés par les Birmans, qui seraient leurs héritiers directs. Le régime militaire a mis en avant cette continuité.",
+              "qui": "Historiographie officielle birmane"
+            },
+            {
+              "titre": "Des peuples distincts",
+              "texte": "Les Pyu parlaient une langue différente, aujourd'hui éteinte. Les Birmans sont arrivés plus tard et ont repris une partie de leur héritage.",
+              "qui": "Linguistes et archéologues"
+            }
+          ],
+          "etat": "Les chercheurs parlent d'un héritage repris plutôt que d'une descendance directe."
+        }
+      ],
       moinsConnu: "Les anciennes cités pyu sont devenues en 2014 le premier site birman classé au patrimoine mondial de l'UNESCO, avant même Pagan, classé en 2019.",
       evenements: [
         { annee: 100, titre: "Cité pyu de Beikthano", lieu: [20.0, 95.38] },
@@ -71,7 +88,24 @@ HISTOIRE.ajouterPays({
         "Pégou était l'un des grands ports de la région au XVIe siècle.",
         "Le royaume d'Arakan est resté indépendant jusqu'en 1784."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Bayinnaung : héros national de qui ?",
+          "positions": [
+            {
+              "titre": "Un héros birman",
+              "texte": "Bayinnaung est célébré comme le plus grand conquérant de l'histoire birmane : sa statue se dresse devant le Parlement de Naypyidaw.",
+              "qui": "Armée et récit national birman"
+            },
+            {
+              "titre": "Un envahisseur",
+              "texte": "Pour les Thaïs, les Shans ou les Laotiens, il est celui qui a détruit Ayutthaya et soumis leurs royaumes.",
+              "qui": "Mémoires thaïe, shan et laotienne"
+            }
+          ],
+          "etat": "Les historiens rappellent que les « empires » de la région étaient fondés sur la conquête de voisins qui n'en gardent pas le même souvenir."
+        }
+      ],
       moinsConnu: "La cour d'Arakan, à Mrauk U, était un carrefour entre bouddhisme et islam : ses rois bouddhistes portaient aussi des titres persans et frappaient des monnaies avec des inscriptions arabes.",
       evenements: [
         { annee: 1364, titre: "Fondation d'Ava", lieu: [21.85, 95.98] },
@@ -93,7 +127,24 @@ HISTOIRE.ajouterPays({
         "La conquête d'Arakan en 1784 a été très violente et a poussé de nombreux Arakanais à fuir au Bengale.",
         "Les Britanniques ont conquis la Birmanie en trois guerres sur soixante ans."
       ],
-      debats: [],
+      debats: [
+        {
+          "question": "Les guerres anglo-birmanes : agression coloniale ou provocation birmane ?",
+          "positions": [
+            {
+              "titre": "Une agression",
+              "texte": "Les Britanniques ont cherché des prétextes pour s'emparer du teck, du riz et des routes vers la Chine.",
+              "qui": "Historiographie nationaliste birmane"
+            },
+            {
+              "titre": "Un choc d'empires",
+              "texte": "L'expansion birmane en Assam et à Manipur menaçait l'Inde britannique. Deux empires en expansion se sont rencontrés.",
+              "qui": "Thant Myint-U"
+            }
+          ],
+          "etat": "Les historiens parlent d'une collision entre deux empires, sans effacer les intérêts économiques qui ont motivé l'annexion finale de 1885."
+        }
+      ],
       moinsConnu: "Le grand Bouddha Mahamuni, statue la plus vénérée d'Arakan, a été emporté à Mandalay comme butin en 1784. Il y est toujours, au cœur d'un des principaux lieux de pèlerinage du pays, un symbole douloureux pour les Arakanais.",
       evenements: [
         { annee: 1752, titre: "Fondation de la dynastie Konbaung", lieu: [22.6, 95.68] },
