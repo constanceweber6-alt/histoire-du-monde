@@ -24,7 +24,12 @@ HISTOIRE.carte = (function () {
     'turquie': /^(Eastern Roman Empire|Byzantine Empire|Seljuk Caliphate|Ottoman Empire|Ottoman Sultanate|Republic of Turkey|Turkey)$/,
     'vietnam': /^(Annam|Cochin China|Tonkin|Vietnam)$/,
     'thailande': /^(Dvaravati|Thai Kingdoms|Kingdom of Sukhotai|Sukhothai|Ayutthaya|Lan Na|Siam|Thailand)$/,
-    'indonesie': /^(Mataram|Srivijaya Empire|East Java|Kediri|Aceh|Dutch East Indies|Netherlands Indies|Neterlands|Indonesia)$/
+    'indonesie': /^(Mataram|Srivijaya Empire|East Java|Kediri|Aceh|Dutch East Indies|Netherlands Indies|Neterlands|Indonesia)$/,
+    'pakistan': /^(Kingdom of Sind|Sindh|Sind|Punjab|Pakistan)$/,
+    'afghanistan': /^(Ghaznavid Emirate|Afghanistan)$/,
+    'birmanie': /^(Pyu state|Pagan|Kingdom of Pagan|Bagan|Burmese kingdoms|Pegu|Ava|Burma|Myanmar)$/,
+    'cambodge': /^(Funan|Khmer Empire|Cambodia)$/,
+    'philippines': /^(Philippines)$/
   };
 
   function rattache(f) {

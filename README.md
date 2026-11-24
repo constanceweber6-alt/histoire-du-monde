@@ -9,7 +9,7 @@ Ce site raconte l'histoire des pays d'Europe et d'Asie depuis l'an 1, phase par 
 - **Pages pays** : pour chaque phase, le récit, ce qui fait consensus, les débats (positions opposées puis état actuel de la recherche), ce qu'on raconte moins et des repères datés.
 - **Pages régions** : Europe de l'Ouest, Europe du Sud, Europe de l'Est, Asie de l'Ouest, Asie de l'Est, Asie du Sud, Asie du Sud-Est, avec un débat transversal par région.
 
-Pays disponibles : France, Royaume-Uni, Allemagne, Italie, Espagne, Russie, Chine, Japon, Corée, Mongolie, Inde, Iran, Turquie, Vietnam, Thaïlande, Indonésie.
+Pays disponibles : France, Royaume-Uni, Allemagne, Italie, Espagne, Russie, Chine, Japon, Corée, Mongolie, Inde, Pakistan, Afghanistan, Iran, Turquie, Birmanie, Thaïlande, Cambodge, Vietnam, Indonésie, Philippines.
 
 ## Lancer le site en local
 
