@@ -18,7 +18,7 @@ HISTOIRE.util = {
   },
   periode: function (d, f) {
     var u = HISTOIRE.util;
-    return u.annee(d) + ' à ' + (f >= 2025 ? "aujourd'hui" : u.annee(f));
+    return u.annee(d) + ' à ' + (f >= 2026 ? "aujourd'hui" : u.annee(f));
   },
   paysParId: function (id) {
     return HISTOIRE.pays.find(function (p) { return p.id === id; });

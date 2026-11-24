@@ -166,7 +166,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: "L'Ordre nouveau et la Reformasi",
-      debut: 1965, fin: 2025,
+      debut: 1965, fin: 2026,
       chapo: "Des massacres de masse portent Suharto au pouvoir pour 32 ans. Sa chute en 1998 ouvre une transition vers la démocratie.",
       recit: [
         "En 1965, après une tentative de putsch attribuée au Parti communiste, l'armée du général Suharto et des milices massacrent entre 500 000 et un million de personnes accusées de communisme. Suharto instaure l'« Ordre nouveau » : croissance économique, corruption, autoritarisme. L'Indonésie envahit le Timor oriental en 1975 ; l'occupation fait plus de 100 000 morts.",

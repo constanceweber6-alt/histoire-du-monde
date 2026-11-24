@@ -185,7 +185,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: "Le Japon d'après-guerre",
-      debut: 1945, fin: 2025,
+      debut: 1945, fin: 2026,
       chapo: "Occupation américaine, constitution pacifiste, miracle économique, puis stagnation, vieillissement et débats sur la mémoire de la guerre.",
       recit: [
         "De 1945 à 1952, les États-Unis occupent le Japon et imposent une constitution démocratique qui renonce à la guerre (article 9). L'empereur reste, mais n'est plus divin. Le Japon connaît une croissance exceptionnelle : il devient la deuxième économie mondiale à la fin des années 1960.",

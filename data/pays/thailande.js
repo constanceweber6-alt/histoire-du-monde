@@ -162,7 +162,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Démocratie, coups d\'État et monarchie',
-      debut: 1973, fin: 2025,
+      debut: 1973, fin: 2026,
       chapo: "Révoltes étudiantes, croissance rapide, alternance entre élections et coups d'État : la démocratie thaïe reste sous la surveillance de l'armée et du palais.",
       recit: [
         "En octobre 1973, un soulèvement étudiant renverse la dictature militaire. En octobre 1976, l'armée et des milices massacrent des étudiants à l'université Thammasat. Le pays connaît une croissance rapide à partir des années 1980, tournée vers l'industrie et le tourisme.",

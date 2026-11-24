@@ -205,7 +205,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Deux Corée',
-      debut: 1945, fin: 2025,
+      debut: 1945, fin: 2026,
       chapo: "Libérée en 1945, la Corée est divisée par la guerre froide. La guerre de 1950 fige deux États aux destins opposés.",
       recit: [
         "En 1945, la péninsule est divisée au 38e parallèle entre l'occupation soviétique au nord et américaine au sud. Deux États naissent en 1948. En juin 1950, la Corée du Nord envahit le Sud. La guerre, avec l'intervention des États-Unis et de la Chine, fait environ trois millions de morts et se termine par un armistice en 1953, sans traité de paix.",

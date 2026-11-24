@@ -187,7 +187,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Quarante ans de guerre',
-      debut: 1978, fin: 2025,
+      debut: 1978, fin: 2026,
       chapo: "Coup d'État communiste, invasion soviétique, guerre civile, talibans, intervention américaine, et retour des talibans en 2021.",
       recit: [
         "En 1978, les communistes prennent le pouvoir et répriment brutalement. L'URSS envahit le pays en décembre 1979. La guerre contre les moudjahidines, soutenus par les États-Unis, le Pakistan et l'Arabie saoudite, fait environ un million de morts et cinq millions de réfugiés. Les Soviétiques se retirent en 1989.",

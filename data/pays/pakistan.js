@@ -172,7 +172,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Le Pakistan après 1971',
-      debut: 1971, fin: 2025,
+      debut: 1971, fin: 2026,
       chapo: "Alternance de gouvernements civils et de dictatures militaires, islamisation, arme nucléaire et rôle central dans les guerres d'Afghanistan.",
       recit: [
         "Zulfikar Ali Bhutto gouverne de 1971 à 1977 et lance le programme nucléaire. Il est renversé par le général Zia ul-Haq, qui le fait pendre en 1979 et islamise le droit. Le Pakistan devient la base arrière de la résistance afghane contre l'URSS, avec l'appui des États-Unis et de l'Arabie saoudite.",

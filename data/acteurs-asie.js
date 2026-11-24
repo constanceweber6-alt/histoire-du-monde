@@ -27,7 +27,7 @@ Object.assign(HISTOIRE.acteurs, {
      ['Mohammad Reza Pahlavi', '1919 à 1980', "Dernier chah d'Iran."]],
     [['Rouhollah Khomeini', '1902 à 1989', "Fondateur de la République islamique."],
      ['Shirin Ebadi', 'née en 1947', "Avocate, prix Nobel de la paix 2003."],
-     ['Ali Khamenei', 'né en 1939', "Guide suprême depuis 1989."],
+     ['Ali Khamenei', '1939 à 2026', "Guide suprême de 1989 à sa mort, tué lors des frappes américano-israéliennes de février 2026."],
      ['Narges Mohammadi', 'née en 1972', "Militante emprisonnée, prix Nobel de la paix 2023."]]
   ],
   'turquie': [

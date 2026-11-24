@@ -201,11 +201,12 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'La République islamique',
-      debut: 1979, fin: 2025,
-      chapo: "Une révolution populaire renverse le chah et aboutit à un régime théocratique, marqué par la guerre, les sanctions et des contestations répétées.",
+      debut: 1979, fin: 2026,
+      chapo: "Une révolution populaire renverse le chah et aboutit à un régime théocratique, marqué par les guerres, les sanctions et des contestations répétées.",
       recit: [
         "En 1978 et 1979, une révolution réunit religieux, libéraux, marxistes et étudiants. Le chah s'exile, l'ayatollah Khomeini rentre et fonde la République islamique, dirigée par un Guide suprême. L'ambassade américaine est occupée. Le voile devient obligatoire et les opposants sont éliminés.",
-        "L'Irak de Saddam Hussein envahit l'Iran en 1980 : la guerre dure huit ans et fait plusieurs centaines de milliers de morts. Le régime alterne phases réformatrices et conservatrices. Le programme nucléaire entraîne des sanctions. Les manifestations de 2009, puis « Femme, vie, liberté » en 2022 après la mort de Mahsa Amini, sont durement réprimées."
+        "L'Irak de Saddam Hussein envahit l'Iran en 1980 : la guerre dure huit ans et fait plusieurs centaines de milliers de morts. Le régime alterne phases réformatrices et conservatrices. Le programme nucléaire entraîne des sanctions. Les manifestations de 2009, puis « Femme, vie, liberté » en 2022 après la mort de Mahsa Amini, sont durement réprimées.",
+        "Le 28 février 2026, les États-Unis et Israël lancent une offensive contre l'Iran. Le Guide suprême Ali Khamenei est tué dès le premier jour ; l'Assemblée des experts désigne son fils Mojtaba Khamenei pour lui succéder. L'Iran riposte contre les pays du Golfe et ferme le détroit d'Ormuz, par où transitait environ un cinquième du pétrole mondial. Un protocole d'accord est signé en juin, mais les affrontements autour du détroit reprennent ensuite."
       ],
       consensus: [
         "La révolution de 1979 a été un mouvement de masse rassemblant des courants très divers.",
@@ -229,7 +230,8 @@ HISTOIRE.ajouterPays({
         { annee: 1988, titre: "Fin de la guerre et exécutions de prisonniers", lieu: [35.69, 51.39] },
         { annee: 2009, titre: "Mouvement vert", lieu: [35.7, 51.4] },
         { annee: 2015, titre: "Accord sur le nucléaire", lieu: [48.2, 16.37] },
-        { annee: 2022, titre: "Mouvement « Femme, vie, liberté »", lieu: [35.69, 51.39] }
+        { annee: 2022, titre: "Mouvement « Femme, vie, liberté »", lieu: [35.69, 51.39] },
+        { annee: 2026, titre: "Offensive américano-israélienne, mort de Khamenei, fermeture d'Ormuz", texte: "Guerre déclenchée le 28 février 2026.", lieu: [27.1, 56.3] }
       ]
     }
   ]

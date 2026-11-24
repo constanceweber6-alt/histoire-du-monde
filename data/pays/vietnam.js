@@ -166,7 +166,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Le Vietnam réunifié',
-      debut: 1975, fin: 2025,
+      debut: 1975, fin: 2026,
       chapo: "Après les années difficiles de l'après-guerre, le Đổi Mới ouvre l'économie : le Vietnam devient l'un des pays à la croissance la plus rapide du monde, sous un parti unique.",
       recit: [
         "Le pays est réunifié en 1976. Des centaines de milliers de Sud-Vietnamiens sont envoyés en camps de rééducation. Plus d'un million de personnes fuient, souvent par la mer : ce sont les « boat people ». Le Vietnam envahit le Cambodge des Khmers rouges en 1978, puis subit une attaque chinoise en 1979.",

@@ -218,7 +218,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Division et réunification',
-      debut: 1945, fin: 2025,
+      debut: 1945, fin: 2026,
       chapo: "Coupée en deux par la guerre froide, l'Allemagne se réunifie en 1990 et devient le pilier de l'Europe, avec une mémoire exigeante de son passé.",
       recit: [
         "Occupée par les Alliés, l'Allemagne est divisée en 1949 : République fédérale à l'Ouest, démocratique et alliée des États-Unis, République démocratique à l'Est, communiste et alignée sur Moscou. Le mur de Berlin, construit en 1961, devient le symbole de la guerre froide.",

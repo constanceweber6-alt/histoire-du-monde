@@ -209,7 +209,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: "L'Inde indépendante",
-      debut: 1947, fin: 2025,
+      debut: 1947, fin: 2026,
       chapo: "La plus grande démocratie du monde, devenue pays le plus peuplé, entre réussites économiques et débats sur son identité laïque.",
       recit: [
         "La Constitution de 1950, rédigée sous la direction de B. R. Ambedkar, instaure une république démocratique et laïque, et abolit l'intouchabilité. Nehru mène une politique de planification et de non-alignement. L'Inde affronte le Pakistan à plusieurs reprises et la Chine en 1962. En 1975, Indira Gandhi suspend les libertés pendant l'état d'urgence.",

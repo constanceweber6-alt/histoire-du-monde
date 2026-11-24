@@ -78,6 +78,25 @@ HISTOIRE.regions = [
     ]
   },
   {
+    id: 'asie-centrale',
+    nom: "Asie centrale",
+    chapo: "Steppes des nomades et oasis des routes de la Soie : le cœur de l'Eurasie, d'où sont partis les grands empires, avant la colonisation russe et soviétique.",
+    texte: [
+      "L'Asie centrale a longtemps été au centre du monde : les routes de la Soie reliaient la Chine, l'Inde, l'Iran et la Méditerranée en passant par Samarcande et Boukhara. Ses villes ont donné à la civilisation islamique certains de ses plus grands savants, et ses steppes ont vu naître les empires turcs et mongols.",
+      "À partir du XVIIIe siècle, la Russie conquiert la région. L'époque soviétique la transforme profondément : sédentarisation forcée, famine, coton, déportations, essais nucléaires. Les cinq républiques indépendantes depuis 1991 réinterprètent aujourd'hui ce passé, parfois en se disputant le même héritage."
+    ],
+    debats: [
+      {
+        question: "Les routes de la Soie : un réseau commercial ou une invention moderne ?",
+        positions: [
+          { titre: "Un grand axe d'échanges", texte: "Pendant des siècles, des caravanes ont transporté soie, épices, idées et religions entre la Chine et la Méditerranée.", qui: "Récit répandu, Peter Frankopan" },
+          { titre: "Un concept du XIXe siècle", texte: "L'expression a été inventée en 1877 par le géographe allemand Ferdinand von Richthofen. Il s'agissait surtout de réseaux régionaux, rarement parcourus de bout en bout, et la soie n'était qu'un produit parmi d'autres.", qui: "Valerie Hansen" }
+        ],
+        etat: "Les historiens gardent l'expression par commodité, mais insistent sur des réseaux multiples et régionaux. Elle est aujourd'hui aussi un outil politique, avec le projet chinois des « nouvelles routes de la soie »."
+      }
+    ]
+  },
+  {
     id: 'asie-sud',
     nom: "Asie du Sud",
     chapo: "Un sous-continent d'une diversité immense, berceau de plusieurs religions, longtemps l'une des premières économies du monde.",

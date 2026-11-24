@@ -133,7 +133,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Les Philippines depuis 1986',
-      debut: 1986, fin: 2025,
+      debut: 1986, fin: 2026,
       chapo: "Une démocratie vivante mais marquée par les dynasties politiques, la paix progressive dans le Sud et les tensions en mer de Chine méridionale.",
       recit: [
         "Les présidences successives alternent réformes, tentatives de coups d'État et scandales. Les bases américaines ferment en 1992. Des millions de Philippins travaillent à l'étranger, et leurs envois d'argent font vivre une partie de l'économie.",

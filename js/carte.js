@@ -29,7 +29,13 @@ HISTOIRE.carte = (function () {
     'afghanistan': /^(Ghaznavid Emirate|Afghanistan)$/,
     'birmanie': /^(Pyu state|Pagan|Kingdom of Pagan|Bagan|Burmese kingdoms|Pegu|Ava|Burma|Myanmar)$/,
     'cambodge': /^(Funan|Khmer Empire|Cambodia)$/,
-    'philippines': /^(Philippines)$/
+    'philippines': /^(Philippines)$/,
+    'pologne': /^(Polanes|Poland|Poland-Lithuania|Polish\u2013Lithuanian Commonwealth)$/,
+    'ukraine': /^(Principality of Galicia-Volhynia|Principality of Kyiv|Ukraine)$/,
+    'grece': /^(Greece)$/,
+    'irak': /^(Abbasid Caliphate|Mesopotamia \(GB\)|Iraq)$/,
+    'kazakhstan': /^(Kimek-Kipchak khaganate|Cuman-Kipchak confederation|White Horde|Kazakhstan)$/,
+    'ouzbekistan': /^(Khwarazmian dynasty|Khiva Khanate|Bokhara Khanate|Uzbekistan)$/
   };
 
   function rattache(f) {
@@ -242,22 +248,22 @@ HISTOIRE.carte = (function () {
     var b = document.getElementById('bouton-lecture');
     if (etat.lecture) { clearInterval(etat.lecture); etat.lecture = null; b.textContent = '▶'; b.setAttribute('aria-label', 'Lancer'); return; }
     b.textContent = '❚❚'; b.setAttribute('aria-label', 'Pause');
-    if (etat.annee >= 2025) etat.annee = 1;
+    if (etat.annee >= 2026) etat.annee = 1;
     etat.lecture = setInterval(function () {
-      etat.annee = Math.min(2025, etat.annee + 25);
+      etat.annee = Math.min(2026, etat.annee + 25);
       dessiner();
-      if (etat.annee >= 2025) lecture();
+      if (etat.annee >= 2026) lecture();
     }, 900);
   }
 
   function afficher(app, params) {
-    etat.annee = Math.max(1, Math.min(2025, parseInt(params.annee || etat.annee || 1, 10) || 1));
+    etat.annee = Math.max(1, Math.min(2026, parseInt(params.annee || etat.annee || 1, 10) || 1));
     etat.filtre = params.pays || '';
     etat.vue = { x: VUE.x, y: VUE.y, w: VUE.w, h: VUE.h };
     var options = '<option value="">Tous les pays</option>' + HISTOIRE.pays.map(function (p) {
       return '<option value="' + p.id + '"' + (p.id === etat.filtre ? ' selected' : '') + '>' + U.esc(p.nom) + '</option>';
     }).join('');
-    var grad = [1, 400, 800, 1200, 1600, 2000].map(function (a) { return '<span style="left:' + ((a - 1) / 2024 * 100).toFixed(2) + '%">' + a + '</span>'; }).join('');
+    var grad = [1, 400, 800, 1200, 1600, 2000].map(function (a) { return '<span style="left:' + ((a - 1) / 2025 * 100).toFixed(2) + '%">' + a + '</span>'; }).join('');
     app.innerHTML =
       '<section class="carte-page">' +
         '<svg id="carte-svg" viewBox="0 0 1379 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte des frontières historiques de l\'Europe et de l\'Asie">' +
@@ -270,7 +276,7 @@ HISTOIRE.carte = (function () {
         '</div>' +
         '<div class="carte-bas">' +
           '<div class="curseur-ligne"><button id="bouton-lecture" aria-label="Lancer">▶</button>' +
-          '<input type="range" id="curseur-annee" min="1" max="2025" step="1" value="' + etat.annee + '" aria-label="Choisir une année"></div>' +
+          '<input type="range" id="curseur-annee" min="1" max="2026" step="1" value="' + etat.annee + '" aria-label="Choisir une année"></div>' +
           '<div class="graduations">' + grad + '</div>' +
         '</div>' +
         '<p class="carte-credit"><span id="carte-source"></span>. Données : <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> (A. Ourednik, GPL-3.0), noms en anglais. Les frontières anciennes sont des approximations. Points verts : événements à ±40 ans, cliquables. En blanc : le pays filtré, colonies comprises.</p>' +

@@ -228,7 +228,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Le Royaume-Uni contemporain',
-      debut: 1973, fin: 2025,
+      debut: 1973, fin: 2026,
       chapo: "Entrée puis sortie de l'Europe, thatchérisme, paix en Irlande du Nord et poussée des nations : un royaume en question.",
       recit: [
         "Le Royaume-Uni entre dans la Communauté européenne en 1973. Margaret Thatcher (1979 à 1990) privatise, affronte les syndicats et transforme l'économie. En Irlande du Nord, les « Troubles » font environ 3 500 morts avant l'accord du Vendredi saint (1998).",

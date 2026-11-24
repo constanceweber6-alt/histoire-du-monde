@@ -224,7 +224,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'La République populaire',
-      debut: 1949, fin: 2025,
+      debut: 1949, fin: 2026,
       chapo: "Le Parti communiste impose le maoïsme et ses catastrophes, puis lance des réformes qui font de la Chine la deuxième économie du monde.",
       recit: [
         "Mao Zedong proclame la République populaire le 1er octobre 1949. Les nationalistes se replient à Taïwan. Le Grand Bond en avant (1958 à 1962) provoque la plus grande famine de l'histoire. La Révolution culturelle (1966 à 1976) plonge le pays dans le chaos et la violence.",

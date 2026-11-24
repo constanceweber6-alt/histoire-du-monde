@@ -179,7 +179,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'La Turquie contemporaine',
-      debut: 1950, fin: 2025,
+      debut: 1950, fin: 2026,
       chapo: "Multipartisme, coups d'État militaires, conflit kurde, croissance économique, puis concentration du pouvoir sous Recep Tayyip Erdoğan.",
       recit: [
         "Les premières élections libres de 1950 portent au pouvoir le Parti démocrate. La Turquie entre dans l'OTAN en 1952. L'armée, gardienne autoproclamée du kémalisme, intervient en 1960, 1971 et 1980. En 1974, la Turquie intervient militairement à Chypre, qui reste divisée. La guérilla du PKK, à partir de 1984, et la répression font plus de 40 000 morts.",

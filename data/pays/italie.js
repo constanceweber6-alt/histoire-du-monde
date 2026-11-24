@@ -201,7 +201,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'La République italienne',
-      debut: 1946, fin: 2025,
+      debut: 1946, fin: 2026,
       chapo: "Miracle économique, années de plomb, lutte contre la mafia et instabilité politique : une démocratie vivante et tourmentée.",
       recit: [
         "La Démocratie chrétienne domine la vie politique pendant près de cinquante ans, face au plus grand Parti communiste d'Occident. L'Italie participe à la fondation de l'Europe (traité de Rome, 1957). Le « miracle économique » des années 1950 et 1960 transforme le pays.",

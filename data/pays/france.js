@@ -252,7 +252,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'La France contemporaine',
-      debut: 1962, fin: 2025,
+      debut: 1962, fin: 2026,
       chapo: "Fin de l'empire, construction européenne, croissance puis crises : une puissance moyenne qui interroge son modèle et sa mémoire.",
       recit: [
         "La Ve République, fondée en 1958, donne un pouvoir fort au président. Après les accords d'Évian (1962), la France se recentre sur l'Europe et le couple franco-allemand. Mai 1968 bouleverse les mœurs plus que les institutions. Les Trente Glorieuses s'achèvent avec les chocs pétroliers.",

@@ -1,7 +1,7 @@
 /* Frise chronologique comparee : une ligne par pays, un bloc par phase. */
 HISTOIRE.frise = (function () {
   var U = HISTOIRE.util;
-  var DEBUT = 0, FIN = 2025;
+  var DEBUT = 0, FIN = 2026;
   var echelle = 1; // pixels par annee
 
   function largeurParDefaut() {

@@ -210,7 +210,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: "L'Espagne démocratique",
-      debut: 1975, fin: 2025,
+      debut: 1975, fin: 2026,
       chapo: "Une transition pacifique vers la démocratie, l'entrée dans l'Europe, puis des débats ouverts sur la mémoire et l'unité du pays.",
       recit: [
         "Après la mort de Franco, le roi Juan Carlos et le Premier ministre Adolfo Suárez conduisent la transition. La Constitution de 1978 crée une monarchie parlementaire et un État des autonomies. Le 23 février 1981, une tentative de coup d'État militaire échoue. L'Espagne entre dans la CEE en 1986.",

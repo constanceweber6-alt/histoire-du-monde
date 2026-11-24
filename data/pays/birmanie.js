@@ -188,7 +188,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Indépendance et pouvoir militaire',
-      debut: 1948, fin: 2025,
+      debut: 1948, fin: 2026,
       chapo: "Une démocratie fragile, puis cinquante ans de dictature militaire, une ouverture brève, et un coup d'État en 2021 qui plonge le pays dans la guerre civile.",
       recit: [
         "La Birmanie devient indépendante le 4 janvier 1948. Des insurrections communistes et ethniques éclatent aussitôt. En 1962, le général Ne Win prend le pouvoir et impose la « voie birmane vers le socialisme » : isolement, nationalisations, appauvrissement. En 1988, un soulèvement est réprimé dans le sang ; Aung San Suu Kyi, fille d'Aung San, devient le symbole de l'opposition. La junte ignore sa victoire électorale de 1990.",

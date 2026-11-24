@@ -173,7 +173,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'Reconstruction',
-      debut: 1979, fin: 2025,
+      debut: 1979, fin: 2026,
       chapo: "Occupation vietnamienne, guerre civile, accords de paix de 1991 et règne d'un parti dominant.",
       recit: [
         "Le gouvernement installé par le Vietnam affronte les Khmers rouges et les royalistes jusqu'aux accords de Paris de 1991. L'ONU organise des élections en 1993 et Sihanouk redevient roi. Les Khmers rouges se dissolvent à la fin des années 1990, après la mort de Pol Pot en 1998.",

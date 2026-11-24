@@ -174,7 +174,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'La Mongolie démocratique',
-      debut: 1990, fin: 2025,
+      debut: 1990, fin: 2026,
       chapo: "Une révolution pacifique ouvre la démocratie. Le pays mise sur ses mines, entre la Russie et la Chine.",
       recit: [
         "Au printemps 1990, des manifestations pacifiques mènent à des élections libres. Une nouvelle constitution est adoptée en 1992. La fin de l'aide soviétique provoque une crise économique sévère. Gengis Khan redevient le symbole de la nation.",

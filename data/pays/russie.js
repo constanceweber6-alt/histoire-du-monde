@@ -225,7 +225,7 @@ HISTOIRE.ajouterPays({
     },
     {
       titre: 'La Russie post-soviétique',
-      debut: 1991, fin: 2025,
+      debut: 1991, fin: 2026,
       chapo: "Une transition chaotique vers le marché, puis la reconstruction d'un pouvoir autoritaire et des guerres contre ses voisins.",
       recit: [
         "Sous Boris Eltsine, les réformes économiques brutales et les privatisations enrichissent quelques oligarques et appauvrissent une grande partie de la population. La première guerre de Tchétchénie (1994 à 1996) est un désastre.",
