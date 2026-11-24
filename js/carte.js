@@ -82,6 +82,16 @@ HISTOIRE.carte = (function () {
     'tunisie': /^(Aghlabid Emirate|Hafsid Caliphate|Tunis|Tunisia)$/,
     'cote-ivoire': /^(Kong Empire|Kong|Ivory Coast)$/,
     'guatemala': /^(Maya chiefdoms and states|Maya states|Maya city-states|Guatemala)$/,
+    'belgique': /^(Belgium)$/,
+    'suisse': /^(Swiss Confederation|Helvetic Republic|Switzerland)$/,
+    'tchequie': /^(Czechs|Moravians|Great Moravia|Czechoslovakia|Czech Republic)$/,
+    'serbie': /^(Serbia|Yugoslavia)$/,
+    'danemark': /^(Denmark|Denmark-Norway|Kalmar Union)$/,
+    'norvege': /^(Kingdom of Norway|Norway)$/,
+    'finlande': /^(Grand Duchy of Finland|Finland)$/,
+    'soudan': /^(Kushites|Funj|Darfur|Anglo-Egyptian Sudan|Sudan)$/,
+    'somalie': /^(Adal|Somalia|British Somaliland|Italian Somaliland)$/,
+    'ouganda': /^(Buganda|Bunyoro|Uganda)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
