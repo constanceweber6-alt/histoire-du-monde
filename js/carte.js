@@ -67,6 +67,11 @@ HISTOIRE.carte = (function () {
     'ghana': /^(Asante|Gold Coast|Gold Coast \(GB\)|Ghana)$/,
     'rwanda': /^(Rwanda|Rwanda \(Belgium\))$/,
     'angola': /^(Ndongo|Angola|Angola \(Portugal\))$/,
+    'bolivie': /^(Tiahuanaco Empire|Bolivia)$/,
+    'equateur': /^(Ecuador)$/,
+    'tanzanie': /^(Zanzibar|Sultanate of Zanzibar|Sultinate of Zanzibar|German E\. Africa \(Tanganyika\)|Tanzania, United Republic of)$/,
+    'fidji': /^(Fiji)$/,
+    'papouasie': /^(Papuans|Papuan|Papua New Guinea)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
