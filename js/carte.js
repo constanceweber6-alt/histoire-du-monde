@@ -72,6 +72,16 @@ HISTOIRE.carte = (function () {
     'tanzanie': /^(Zanzibar|Sultanate of Zanzibar|Sultinate of Zanzibar|German E\. Africa \(Tanganyika\)|Tanzania, United Republic of)$/,
     'fidji': /^(Fiji)$/,
     'papouasie': /^(Papuans|Papuan|Papua New Guinea)$/,
+    'portugal': /^(Portugal)$/,
+    'autriche': /^(Austrian Empire|Austria|Austria Hungary)$/,
+    'roumanie': /^(Dacia|Principality of Wallachia|Romania)$/,
+    'irlande': /^(Kingdom of Ireland|Ireland)$/,
+    'liban': /^(Lebanon)$/,
+    'armenie': /^(Armenia)$/,
+    'bangladesh': /^(Bengal|Bangladesh)$/,
+    'tunisie': /^(Aghlabid Emirate|Hafsid Caliphate|Tunis|Tunisia)$/,
+    'cote-ivoire': /^(Kong Empire|Kong|Ivory Coast)$/,
+    'guatemala': /^(Maya chiefdoms and states|Maya states|Maya city-states|Guatemala)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
