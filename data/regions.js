@@ -267,5 +267,24 @@ HISTOIRE.regions = [
         etat: "La plupart des économistes estiment que les ressources ne sont pas une malédiction en soi, mais qu'elles aggravent les problèmes là où les institutions sont faibles."
       }
     ]
+    },
+  {
+    id: 'oceanie',
+    nom: "Océanie",
+    chapo: "Les plus anciennes cultures continues du monde en Australie, les navigateurs polynésiens qui ont peuplé le Pacifique, puis la colonisation britannique.",
+    texte: [
+      "Les Aborigènes d'Australie vivent sur leur continent depuis au moins 50 000 ans. Bien plus tard, des navigateurs austronésiens partis d'Asie du Sud-Est peuplent les îles du Pacifique ; leurs descendants polynésiens atteignent la Nouvelle-Zélande vers 1300, l'une des dernières terres découvertes par l'humanité.",
+      "À partir de la fin du XVIIIe siècle, les Britanniques colonisent l'Australie et la Nouvelle-Zélande, au prix de la dépossession des peuples autochtones. Aujourd'hui, les deux pays débattent de la reconnaissance de ces peuples et de leur place dans la nation."
+    ],
+    debats: [
+      {
+        question: "Comment raconter la colonisation de l'Océanie ?",
+        positions: [
+          { titre: "Une installation", texte: "Les colons britanniques auraient apporté institutions, démocratie et prospérité dans des terres peu peuplées.", qui: "Récits nationaux traditionnels" },
+          { titre: "Une invasion", texte: "La colonisation a été une conquête violente, marquée par des massacres, des épidémies et la confiscation des terres.", qui: "Historiens autochtones, Henry Reynolds" }
+        ],
+        etat: "Ce débat, appelé en Australie les « guerres de l'histoire », reste vif. Les recherches récentes ont documenté l'ampleur des violences coloniales."
+      }
+    ]
   }
 ];

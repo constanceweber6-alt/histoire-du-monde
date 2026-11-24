@@ -2,7 +2,7 @@
 HISTOIRE.carte = (function () {
   var U = HISTOIRE.util;
   var NS = 'http://www.w3.org/2000/svg';
-  var VUE = { x: 0, y: 0, w: 2681, h: 1340 };
+  var VUE = { x: 0, y: -30, w: 2758, h: 2150 }; // marge en bas pour que l'Antarctique ne passe pas sous le curseur
   var etat = { annee: 1, lecture: null, filtre: '', vue: null, chargees: {} };
   var GRIS = ['#3b3b3b', '#474747', '#545454', '#626262', '#717171', '#808080', '#8f8f8f'];
 
@@ -62,29 +62,40 @@ HISTOIRE.carte = (function () {
     'ethiopie': /^(Axum|Ethiopia|Abyssinia|Ethiopia \(Italy\))$/,
     'rdc': /^(Congo|Luba|Lunda|Belgian Congo|Zaire|Zaire \(Belgium\))$/,
     'kenya': /^(Kenya|British East Africa)$/,
+    'australie': /^(Australian aboriginal hunter-gatherers|Tasmanian hunter-gatherers|Aboriginal Tasmanians|New South Wales|New South Wales \(UK\)|Queensland \(UK\)|Victoria \(UK\)|South Australia \(UK\)|Western Australia \(UK\)|Australia)$/,
+    'nouvelle-zelande': /^(Maori|Maoris|M\u0101ori|New Zealand)$/,
+    'ghana': /^(Asante|Gold Coast|Gold Coast \(GB\)|Ghana)$/,
+    'rwanda': /^(Rwanda|Rwanda \(Belgium\))$/,
+    'angola': /^(Ndongo|Angola|Angola \(Portugal\))$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
-  /* Noms ambigus : valables seulement avant une certaine annee de carte
+  /* Noms ambigus : valables seulement pour certaines annees de carte
      (le royaume du Benin n'est pas l'Etat moderne, l'empire du Ghana n'est pas le Ghana actuel). */
-  var VALIDE_AVANT = { 'Benin': 1800, 'Congo': 1890, 'Ghana': 1300 };
-  function teste(re, nom) {
-    if (!nom || !re.test(nom)) return false;
-    var lim = VALIDE_AVANT[nom];
-    return !lim || anneeCarte(etat.annee) < lim;
+  var PERIODES = {
+    'mali|Ghana': [0, 1300], 'ghana|Ghana': [1900, 9999],
+    'nigeria|Benin': [0, 1800], 'rdc|Congo': [0, 1890]
+  };
+  function teste(id, nom) {
+    var re = CORRESPONDANCES[id];
+    if (!re || !nom || !re.test(nom)) return false;
+    var per = PERIODES[id + '|' + nom];
+    if (!per) return true;
+    var a = anneeCarte(etat.annee);
+    return a >= per[0] && a < per[1];
   }
 
   function rattache(f) {
     var re = CORRESPONDANCES[etat.filtre];
-    return re ? (teste(re, f.n) || teste(re, f.s)) : false;
+    return re ? (teste(etat.filtre, f.n) || teste(etat.filtre, f.s)) : false;
   }
 
   /* Pays du site auquel appartient une entite de la carte (ou null) */
   function paysDeEntite(f) {
     // d'abord le nom propre de l'entite (l'Ilkhanat mene a l'Iran), puis sa tutelle (une colonie mene a la metropole)
     var id;
-    for (id in CORRESPONDANCES) if (teste(CORRESPONDANCES[id], f.n)) return id;
-    for (id in CORRESPONDANCES) if (teste(CORRESPONDANCES[id], f.s)) return id;
+    for (id in CORRESPONDANCES) if (teste(id, f.n)) return id;
+    for (id in CORRESPONDANCES) if (teste(id, f.s)) return id;
     return null;
   }
 
@@ -302,8 +313,8 @@ HISTOIRE.carte = (function () {
     var grad = [1, 400, 800, 1200, 1600, 2000].map(function (a) { return '<span style="left:' + ((a - 1) / 2025 * 100).toFixed(2) + '%">' + a + '</span>'; }).join('');
     app.innerHTML =
       '<section class="carte-page">' +
-        '<svg id="carte-svg" viewBox="0 0 2681 1340" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte des frontières historiques du monde">' +
-          '<g id="couche-etats"></g><g id="couche-marqueurs"></g>' +
+        '<svg id="carte-svg" viewBox="0 -30 2758 2150" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte des frontières historiques du monde">' +
+          '<g id="couche-etats"></g><g id="couche-continents" aria-hidden="true"><text x="613" y="360">AMÉRIQUE DU NORD</text><text x="919" y="960">AMÉRIQUE DU SUD</text><text x="1494" y="300">EUROPE</text><text x="1532" y="790">AFRIQUE</text><text x="2068" y="340">ASIE</text><text x="2405" y="1090">OCÉANIE</text><text x="1379" y="1620">ANTARCTIQUE</text><text x="1072" y="90">ARCTIQUE</text></g><g id="couche-marqueurs"></g>' +
         '</svg>' +
         '<div class="carte-haut">' +
           '<div><p class="surtitre">Carte interactive</p><div class="carte-annee" id="carte-annee"></div><div class="carte-ere" id="carte-ere"></div></div>' +

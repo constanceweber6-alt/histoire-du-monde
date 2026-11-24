@@ -313,7 +313,8 @@ body.sombre .carte { background: var(--noir-3); border-color: #2e2e2e; color: va
 .carte-page { position: relative; height: 100vh; background: var(--noir-2); color: var(--blanc); overflow: hidden; }
 #carte-svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
 #carte-svg.glisse { cursor: grabbing; }
-#carte-svg .terre { fill: #262626; stroke: #191919; stroke-width: 0.6; }
+#couche-continents text { fill: #fff; opacity: 0.16; font-size: 34px; font-weight: 900; letter-spacing: 0.3em; text-anchor: middle; pointer-events: none; user-select: none; }
+#carte-svg .terre { fill: #303030; stroke: #191919; stroke-width: 0.6; }
 #carte-svg .etat { stroke: #141414; stroke-width: 0.7; transition: fill 0.15s; vector-effect: non-scaling-stroke; }
 #carte-svg .etat:hover { fill: var(--accent) !important; fill-opacity: 0.55; }
 #carte-svg .etat.lien { cursor: pointer; }

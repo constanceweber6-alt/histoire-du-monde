@@ -29,6 +29,6 @@ HISTOIRE.util = {
   /* Transforme lat/lon en coordonnees du SVG de la carte (meme projection que tools/cartes.py) */
   projeter: function (lat, lon) {
     var kx = 10 * Math.cos(40 * Math.PI / 180);
-    return [(lon + 170) * kx, (78 - lat) * 10];
+    return [(lon + 180) * kx, (84 - lat) * 10];
   }
 };
