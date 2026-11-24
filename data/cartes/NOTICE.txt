@@ -1,0 +1,2 @@
+Frontières dérivées de historical-basemaps (https://github.com/aourednik/historical-basemaps), André Ourednik, GPL-3.0.
+Modifications : recadrage Europe-Asie, simplification Douglas-Peucker, projection et conversion en JavaScript par tools/cartes.py.

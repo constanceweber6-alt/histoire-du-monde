@@ -1,0 +1,255 @@
+/* Carte interactive : frontieres historiques par date + evenements des pays. */
+HISTOIRE.carte = (function () {
+  var U = HISTOIRE.util;
+  var NS = 'http://www.w3.org/2000/svg';
+  var VUE = { x: 0, y: 0, w: 1379, h: 900 };
+  var etat = { annee: 1, lecture: null, filtre: '', vue: null, chargees: {} };
+  var GRIS = ['#3b3b3b', '#474747', '#545454', '#626262', '#717171', '#808080', '#8f8f8f'];
+
+  /* Noms des entites du jeu de donnees rattachees a chaque pays (nom propre ou entite de tutelle).
+     Le rattachement par tutelle fait apparaitre les colonies : c'est voulu. */
+  var CORRESPONDANCES = {
+    'france': /^(Franks|Frankish Kingdom|West Francia|Kingdom of France|France|Comté de Toulouse)$/,
+    'royaume-uni': /^(England|Scotland|English territory|England and Ireland|United Kingdom.*|Great Britain|UK|British East India Company|British Raj)$/,
+    'allemagne': /^(Holy Roman Empire|East Francia|Germany|German Empire|East Germany|West Germany|Prussia|East Prussia|Bavaria|Saxony)$/,
+    'italie': /^(Roman Empire|Western Roman Empire|Rome \(.*\)|Lombard principalities|Lombard duchies|Papal States|Venice|Lombardy|Italy|Kingdom of Italy)$/,
+    'espagne': /^(Visigoths|Visigothic Kingdom|Navarre|Castilla|Castile|Castille|Aragón|Granada|Spain|Spanish Habsburg|.*C[oó]rdoba.*)$/,
+    'russie': /^(Rus' Khaganate|Kyivan Rus|Kievan Rus|Other Rus Principalities|Principality of Novgorod|Principality of Vladimir-Suzdal|Novgorod|Tsardom of Muscovy|Russian Empire|Russia|USSR|Soviet Union)$/,
+    'chine': /^(Han|Jin|Jin Empire|Han Zhao|Toba Wei|Sui Empire|Tang Empire|Song Empire|Great Khanate|Ming Empire|Ming Chinese Empire|Post-Ming Warlords|Qing Empire|China|Chinese [Ww]arlords)$/,
+    'japon': /^(Yamato|Japan.*|Imperial Japan.*|Shogun Japan.*|Empire of Japan)$/,
+    'coree': /^(Silla|Koguryo|Paekche|Goryeo|Korea.*)$/,
+    'inde': /^(Kushan Empire|Kushan Principalities|Gupta Empire|Chola|Cholas|Chola Empire|Sultanate of Delhi|Vijayanagara|Mughal Empire|Maratha|Maratha Confederacy|British East India Company|British Raj|India)$/
+  };
+
+  function rattache(f) {
+    var re = CORRESPONDANCES[etat.filtre];
+    return re ? (re.test(f.n) || re.test(f.s)) : false;
+  }
+
+  function teinte(nom) {
+    var h = 0;
+    for (var i = 0; i < nom.length; i++) h = (h * 31 + nom.charCodeAt(i)) >>> 0;
+    return GRIS[h % GRIS.length];
+  }
+
+  function anneeCarte(a) {
+    var liste = HISTOIRE.anneesCartes, r = liste[0];
+    for (var i = 0; i < liste.length; i++) if (liste[i] <= a) r = liste[i];
+    return r;
+  }
+
+  function charger(annee, rappel) {
+    if (HISTOIRE.cartes[annee]) return rappel();
+    if (etat.chargees[annee]) { etat.chargees[annee].push(rappel); return; }
+    etat.chargees[annee] = [rappel];
+    var s = document.createElement('script');
+    s.src = 'data/cartes/' + annee + '.js';
+    s.onload = function () { var r = etat.chargees[annee]; delete etat.chargees[annee]; r.forEach(function (f) { f(); }); };
+    s.onerror = function () { delete etat.chargees[annee]; };
+    document.head.appendChild(s);
+  }
+
+  function evenementsProches(a) {
+    var res = [];
+    HISTOIRE.pays.forEach(function (p) {
+      if (etat.filtre && p.id !== etat.filtre) return;
+      p.phases.forEach(function (ph, i) {
+        (ph.evenements || []).forEach(function (ev) {
+          if (ev.lieu && Math.abs(ev.annee - a) <= 40) res.push({ ev: ev, pays: p, phase: i });
+        });
+      });
+    });
+    return res;
+  }
+
+  function ere(a) {
+    var p = HISTOIRE.pays.find(function (x) { return x.id === etat.filtre; });
+    if (p) {
+      var ph = p.phases.find(function (x) { return a >= x.debut && a < x.fin; }) || p.phases[p.phases.length - 1];
+      return p.nom + ' · ' + ph.titre;
+    }
+    if (a < 500) return 'Antiquité tardive';
+    if (a < 1000) return 'Haut Moyen Âge (repère européen)';
+    if (a < 1500) return 'Moyen Âge central et tardif (repère européen)';
+    if (a < 1800) return 'Époque moderne';
+    if (a < 1914) return 'Long XIXe siècle';
+    return 'XXe et XXIe siècles';
+  }
+
+  function dessiner() {
+    var svg = document.getElementById('carte-svg');
+    if (!svg) return;
+    var ac = anneeCarte(etat.annee);
+    document.getElementById('carte-annee').textContent = U.annee(etat.annee);
+    document.getElementById('carte-ere').textContent = ere(etat.annee);
+    document.getElementById('carte-source').textContent = 'Frontières : état ' + U.annee(ac);
+    charger(ac, function () {
+      if (anneeCarte(etat.annee) !== ac) return;
+      var g = document.getElementById('couche-etats');
+      var frag = document.createDocumentFragment();
+      HISTOIRE.cartes[ac].forEach(function (f) {
+        var p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', f.d);
+        if (f.n) {
+          p.setAttribute('class', 'etat' + (etat.filtre && rattache(f) ? ' choisi' : ''));
+          p.setAttribute('fill', teinte(f.s || f.n));
+          p.dataset.nom = f.n;
+          if (f.s && f.s !== f.n) p.dataset.dep = f.s;
+        } else {
+          p.setAttribute('class', 'terre');
+        }
+        frag.appendChild(p);
+      });
+      g.replaceChildren(frag);
+    });
+    var m = document.getElementById('couche-marqueurs');
+    var fragm = document.createDocumentFragment();
+    evenementsProches(etat.annee).forEach(function (o) {
+      var xy = U.projeter(o.ev.lieu[0], o.ev.lieu[1]);
+      var grp = document.createElementNS(NS, 'g');
+      grp.setAttribute('class', 'marqueur');
+      grp.setAttribute('transform', 'translate(' + xy[0].toFixed(1) + ' ' + xy[1].toFixed(1) + ')');
+      var k = VUE.w / etat.vue.w;
+      var halo = document.createElementNS(NS, 'circle'); halo.setAttribute('class', 'halo'); halo.setAttribute('r', 14 / k);
+      var pt = document.createElementNS(NS, 'circle'); pt.setAttribute('class', 'point'); pt.setAttribute('r', 5.5 / k);
+      grp.appendChild(halo); grp.appendChild(pt);
+      grp.addEventListener('click', function (e) { e.stopPropagation(); fiche(o); });
+      grp.addEventListener('pointerenter', function (e) { bulle(U.annee(o.ev.annee) + ' · ' + o.ev.titre, e); });
+      grp.addEventListener('pointerleave', function () { bulle(null); });
+      fragm.appendChild(grp);
+    });
+    m.replaceChildren(fragm);
+    var r = document.getElementById('curseur-annee');
+    if (r && +r.value !== etat.annee) r.value = etat.annee;
+    history.replaceState(null, '', '#/carte?annee=' + etat.annee + (etat.filtre ? '&pays=' + etat.filtre : ''));
+  }
+
+  function fiche(o) {
+    var el = document.getElementById('carte-info');
+    var ph = o.pays.phases[o.phase];
+    el.innerHTML = '<button class="fermer" aria-label="Fermer">×</button>' +
+      '<p class="surtitre">' + U.esc(o.pays.nom) + ' · ' + U.esc(U.annee(o.ev.annee)) + '</p>' +
+      '<h3>' + U.esc(o.ev.titre) + '</h3>' +
+      (o.ev.texte ? '<p>' + U.esc(o.ev.texte) + '</p>' : '') +
+      '<p class="discret">Phase : ' + U.esc(ph.titre) + ' (' + U.esc(U.periode(ph.debut, ph.fin)) + ')</p>' +
+      '<a class="bouton bouton-noir" href="#/pays/' + o.pays.id + '/' + o.phase + '">Lire la phase</a>';
+    el.classList.add('visible');
+    el.querySelector('.fermer').onclick = function () { el.classList.remove('visible'); };
+  }
+
+  function bulle(texte, e) {
+    var b = document.getElementById('bulle');
+    if (!texte) { b.style.display = 'none'; return; }
+    b.textContent = texte; b.style.display = 'block';
+    b.style.left = (e.clientX + 14) + 'px'; b.style.top = (e.clientY + 14) + 'px';
+  }
+
+  function appliquerVue() {
+    var svg = document.getElementById('carte-svg');
+    var v = etat.vue;
+    svg.setAttribute('viewBox', v.x + ' ' + v.y + ' ' + v.w + ' ' + v.h);
+    var k = VUE.w / v.w;
+    svg.querySelectorAll('.marqueur .halo').forEach(function (c) { c.setAttribute('r', 14 / k); });
+    svg.querySelectorAll('.marqueur .point').forEach(function (c) { c.setAttribute('r', 5.5 / k); });
+  }
+
+  function zoomer(f, cx, cy) {
+    var v = etat.vue;
+    var nw = Math.max(120, Math.min(VUE.w * 1.4, v.w / f));
+    var r = nw / v.w;
+    if (cx == null) { cx = v.x + v.w / 2; cy = v.y + v.h / 2; }
+    v.x = cx - (cx - v.x) * r; v.y = cy - (cy - v.y) * r;
+    v.w = nw; v.h = v.h * r;
+    appliquerVue();
+  }
+
+  function interactions(svg) {
+    var depart = null;
+    function pointSvg(e) {
+      var r = svg.getBoundingClientRect(), v = etat.vue;
+      var s = Math.max(v.w / r.width, v.h / r.height);
+      var ox = (r.width * s - v.w) / 2, oy = (r.height * s - v.h) / 2;
+      return [v.x - ox + (e.clientX - r.left) * s, v.y - oy + (e.clientY - r.top) * s, s];
+    }
+    svg.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      var p = pointSvg(e);
+      zoomer(e.deltaY < 0 ? 1.18 : 1 / 1.18, p[0], p[1]);
+    }, { passive: false });
+    svg.addEventListener('pointerdown', function (e) {
+      depart = { x: e.clientX, y: e.clientY, vx: etat.vue.x, vy: etat.vue.y, s: pointSvg(e)[2], bouge: false };
+      svg.setPointerCapture(e.pointerId);
+    });
+    svg.addEventListener('pointermove', function (e) {
+      if (depart) {
+        var dx = e.clientX - depart.x, dy = e.clientY - depart.y;
+        if (Math.abs(dx) + Math.abs(dy) > 3) { depart.bouge = true; svg.classList.add('glisse'); }
+        etat.vue.x = depart.vx - dx * depart.s; etat.vue.y = depart.vy - dy * depart.s;
+        appliquerVue();
+        return;
+      }
+      var t = e.target;
+      if (t.classList && t.classList.contains('etat')) {
+        bulle(t.dataset.nom + (t.dataset.dep ? ' (dépend de ' + t.dataset.dep + ')' : ''), e);
+      } else if (!t.closest('.marqueur')) bulle(null);
+    });
+    svg.addEventListener('pointerup', function () { depart = null; svg.classList.remove('glisse'); });
+    svg.addEventListener('pointerleave', function () { bulle(null); });
+  }
+
+  function lecture() {
+    var b = document.getElementById('bouton-lecture');
+    if (etat.lecture) { clearInterval(etat.lecture); etat.lecture = null; b.textContent = '▶'; b.setAttribute('aria-label', 'Lancer'); return; }
+    b.textContent = '❚❚'; b.setAttribute('aria-label', 'Pause');
+    if (etat.annee >= 2025) etat.annee = 1;
+    etat.lecture = setInterval(function () {
+      etat.annee = Math.min(2025, etat.annee + 25);
+      dessiner();
+      if (etat.annee >= 2025) lecture();
+    }, 900);
+  }
+
+  function afficher(app, params) {
+    etat.annee = Math.max(1, Math.min(2025, parseInt(params.annee || etat.annee || 1, 10) || 1));
+    etat.filtre = params.pays || '';
+    etat.vue = { x: VUE.x, y: VUE.y, w: VUE.w, h: VUE.h };
+    var options = '<option value="">Tous les pays</option>' + HISTOIRE.pays.map(function (p) {
+      return '<option value="' + p.id + '"' + (p.id === etat.filtre ? ' selected' : '') + '>' + U.esc(p.nom) + '</option>';
+    }).join('');
+    var grad = [1, 400, 800, 1200, 1600, 2000].map(function (a) { return '<span style="left:' + ((a - 1) / 2024 * 100).toFixed(2) + '%">' + a + '</span>'; }).join('');
+    app.innerHTML =
+      '<section class="carte-page">' +
+        '<svg id="carte-svg" viewBox="0 0 1379 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte des frontières historiques de l\'Europe et de l\'Asie">' +
+          '<g id="couche-etats"></g><g id="couche-marqueurs"></g>' +
+        '</svg>' +
+        '<div class="carte-haut">' +
+          '<div><p class="surtitre">Carte interactive</p><div class="carte-annee" id="carte-annee"></div><div class="carte-ere" id="carte-ere"></div></div>' +
+          '<div class="carte-zoom"><select id="filtre-pays" class="bouton bouton-gris" aria-label="Filtrer les événements par pays">' + options + '</select>' +
+          '<button id="zoom-plus" aria-label="Zoomer">+</button><button id="zoom-moins" aria-label="Dézoomer">−</button><button id="zoom-zero" aria-label="Recentrer">⟲</button></div>' +
+        '</div>' +
+        '<div class="carte-info" id="carte-info"></div>' +
+        '<div class="carte-bas">' +
+          '<div class="curseur-ligne"><button id="bouton-lecture" aria-label="Lancer">▶</button>' +
+          '<input type="range" id="curseur-annee" min="1" max="2025" step="1" value="' + etat.annee + '" aria-label="Choisir une année"></div>' +
+          '<div class="graduations">' + grad + '</div>' +
+        '</div>' +
+        '<p class="carte-credit"><span id="carte-source"></span>. Données : <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> (A. Ourednik, GPL-3.0), noms en anglais. Les frontières anciennes sont des approximations. Points verts : événements à ±40 ans. En blanc : le pays filtré, colonies comprises.</p>' +
+      '</section>';
+    var svg = document.getElementById('carte-svg');
+    interactions(svg);
+    document.getElementById('curseur-annee').addEventListener('input', function (e) { etat.annee = +e.target.value; dessiner(); });
+    document.getElementById('bouton-lecture').addEventListener('click', lecture);
+    document.getElementById('zoom-plus').addEventListener('click', function () { zoomer(1.4); });
+    document.getElementById('zoom-moins').addEventListener('click', function () { zoomer(1 / 1.4); });
+    document.getElementById('zoom-zero').addEventListener('click', function () { etat.vue = { x: VUE.x, y: VUE.y, w: VUE.w, h: VUE.h }; appliquerVue(); });
+    document.getElementById('filtre-pays').addEventListener('change', function (e) { etat.filtre = e.target.value; dessiner(); });
+    dessiner();
+  }
+
+  function quitter() {
+    if (etat.lecture) { clearInterval(etat.lecture); etat.lecture = null; }
+    var b = document.getElementById('bulle'); if (b) b.style.display = 'none';
+  }
+
+  return { afficher: afficher, quitter: quitter };
+})();
