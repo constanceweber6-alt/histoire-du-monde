@@ -155,11 +155,12 @@ HISTOIRE.regions = [
   },
   {
     id: 'amerique-nord',
-    nom: "Amérique du Nord",
-    chapo: "Des sociétés autochtones très diverses, puis des colonies européennes qui deviennent la première puissance mondiale.",
+    nom: "Amérique du Nord et Caraïbes",
+    chapo: "Des civilisations mésoaméricaines et des sociétés autochtones très diverses, puis des colonies européennes : la Nouvelle-Espagne, la Nouvelle-France, les îles à sucre et les colonies britanniques devenues première puissance mondiale.",
     texte: [
       "Avant 1492, l'Amérique du Nord compte des centaines de peuples, des bâtisseurs de tertres du Mississippi aux Pueblos du Sud-Ouest. Les épidémies venues d'Europe, puis la conquête, réduisent fortement leur nombre.",
-      "Les colonies britanniques deviennent les États-Unis en 1776. Le pays s'étend vers l'ouest, abolit l'esclavage après une guerre civile et devient au XXe siècle une superpuissance, dont l'histoire reste marquée par la question raciale."
+      "Au sud, Teotihuacan, les Mayas et les Aztèques bâtissent de grandes civilisations avant la conquête espagnole. Dans les Caraïbes, les îles deviennent des colonies sucrières fondées sur l'esclavage ; à Saint-Domingue, les esclaves arrachent en 1804 l'indépendance d'Haïti.",
+      "Les colonies britanniques deviennent les États-Unis en 1776, le Canada se construit lentement par compromis, le Mexique perd la moitié de son territoire face à son voisin. Au XXe siècle, les États-Unis dominent la région, de la révolution mexicaine à la révolution cubaine."
     ],
     debats: [
       {
@@ -188,6 +189,82 @@ HISTOIRE.regions = [
           { titre: "Une continuité", texte: "Les élites créoles ont remplacé les Espagnols sans changer la hiérarchie sociale. Les autochtones et les descendants d'esclaves sont restés exclus.", qui: "Historiens de l'école de la dépendance, John Lynch" }
         ],
         etat: "Les historiens nuancent les deux lectures : rupture politique réelle, mais continuités sociales profondes."
+      }
+    ]
+    },
+  {
+    id: 'afrique-nord',
+    nom: "Afrique du Nord",
+    chapo: "De l'Égypte au Maroc, une terre amazighe, romaine puis arabe et musulmane, carrefour entre la Méditerranée, le Sahara et le Moyen-Orient.",
+    texte: [
+      "En l'an 1, toute la côte d'Afrique du Nord appartient à l'Empire romain ou à ses alliés. Le christianisme s'y diffuse tôt, avec Alexandrie et saint Augustin. À partir du VIIe siècle, la conquête arabe apporte l'islam et la langue arabe, qui se mêlent aux cultures amazighes.",
+      "Le Caire, Fès, Tlemcen et Kairouan deviennent de grandes capitales. Du XIXe au XXe siècle, la région est colonisée par la France, la Grande-Bretagne, l'Italie et l'Espagne. Les indépendances, souvent obtenues par la lutte, ont laissé place à des régimes autoritaires, secoués par les printemps arabes de 2011."
+    ],
+    debats: [
+      {
+        question: "L'Afrique du Nord fait-elle partie de l'Afrique ou du monde arabe ?",
+        positions: [
+          { titre: "Le monde arabe", texte: "Langue, religion et culture rattachent l'Afrique du Nord au Moyen-Orient plus qu'à l'Afrique subsaharienne.", qui: "Nationalisme arabe" },
+          { titre: "L'Afrique", texte: "Le Sahara a toujours été traversé par le commerce, les savoirs et les hommes ; les racines amazighes et les liens avec le Sahel font de la région une partie de l'Afrique.", qui: "Historiens de l'Afrique, mouvement amazigh" }
+        ],
+        etat: "Les historiens insistent de plus en plus sur les liens transsahariens, longtemps négligés par une séparation coloniale entre « Afrique blanche » et « Afrique noire »."
+      }
+    ]
+  },
+  {
+    id: 'afrique-ouest',
+    nom: "Afrique de l'Ouest",
+    chapo: "Les empires du Ghana, du Mali et Songhaï, les cités haoussa et les royaumes de la forêt, la traite atlantique, puis la colonisation française et britannique.",
+    texte: [
+      "L'Afrique de l'Ouest a vu naître de grands empires fondés sur le commerce de l'or, du sel et des esclaves à travers le Sahara. Tombouctou, Djenné et Kano ont été des centres de savoir. Dans la forêt, Ifé et le Bénin ont produit des chefs-d'œuvre d'art.",
+      "Du XVIe au XIXe siècle, la traite atlantique déporte des millions de personnes depuis ses côtes. La région est ensuite colonisée, principalement par la France et le Royaume-Uni. Depuis les indépendances de 1960, elle alterne démocraties, coups d'État et, au Sahel, guerres contre des groupes djihadistes."
+    ],
+    debats: [
+      {
+        question: "Les frontières coloniales sont-elles la cause des crises actuelles ?",
+        positions: [
+          { titre: "Oui", texte: "Les frontières tracées par les Européens ont séparé des peuples et regroupé des sociétés rivales dans des États artificiels.", qui: "Une partie des responsables politiques et des chercheurs" },
+          { titre: "Non, pas seulement", texte: "Les frontières ont été acceptées par l'Organisation de l'unité africaine en 1964 et peu de guerres portent sur elles ; la gouvernance et les inégalités pèsent davantage.", qui: "Historiens, politistes" }
+        ],
+        etat: "Les chercheurs nuancent le rôle des frontières : elles posent des problèmes réels, mais les conflits actuels ont surtout des causes politiques, sociales et économiques."
+      }
+    ]
+  },
+  {
+    id: 'afrique-est',
+    nom: "Afrique de l'Est",
+    chapo: "Aksoum et l'Éthiopie chrétienne, la côte swahilie ouverte sur l'océan Indien, puis la colonisation britannique et italienne.",
+    texte: [
+      "La Corne de l'Afrique abrite l'un des plus anciens États chrétiens du monde, l'Éthiopie, qui a gardé son indépendance face aux Européens. Sur la côte, les cités swahilies ont commercé pendant mille ans avec l'Arabie, la Perse, l'Inde et la Chine.",
+      "La région a été partagée à la fin du XIXe siècle entre Britanniques, Allemands et Italiens. Après les indépendances, elle a connu des guerres longues, en Éthiopie, en Somalie, au Soudan, mais aussi une forte croissance économique."
+    ],
+    debats: [
+      {
+        question: "L'Éthiopie a-t-elle vraiment échappé à la colonisation ?",
+        positions: [
+          { titre: "Oui", texte: "Victorieuse à Adoua en 1896, l'Éthiopie est restée indépendante, à l'exception d'une occupation de cinq ans.", qui: "Récit national, mouvements panafricains" },
+          { titre: "En partie seulement", texte: "L'occupation italienne de 1936 à 1941 a été une véritable colonisation, et l'empire éthiopien a lui-même conquis des peuples voisins.", qui: "Une partie des historiens, nationalistes oromos" }
+        ],
+        etat: "Les historiens reconnaissent le caractère exceptionnel de l'Éthiopie, tout en rappelant l'occupation italienne et les conquêtes impériales internes."
+      }
+    ]
+  },
+  {
+    id: 'afrique-centrale',
+    nom: "Afrique centrale et australe",
+    chapo: "Le royaume du Kongo, les empires des savanes, Mapungubwe, puis les colonies belge, portugaise et britannique et le système de l'apartheid.",
+    texte: [
+      "L'expansion des peuples bantous a façonné l'Afrique centrale et australe. Le royaume du Kongo, les empires luba et lunda, Mapungubwe et le Grand Zimbabwe ont été des États puissants, reliés au commerce de l'Atlantique ou de l'océan Indien.",
+      "La colonisation y a été particulièrement brutale : le Congo de Léopold II, les colonies de peuplement d'Afrique australe, l'apartheid en Afrique du Sud. Les richesses minières, du cuivre au cobalt et à l'or, restent un enjeu central."
+    ],
+    debats: [
+      {
+        question: "Les richesses minières sont-elles une malédiction ?",
+        positions: [
+          { titre: "Une malédiction", texte: "Le cobalt, le coltan ou les diamants financent les groupes armés, la corruption et attirent les convoitises étrangères.", qui: "Économistes de la « malédiction des ressources »" },
+          { titre: "Une question de gouvernance", texte: "Le Botswana, riche en diamants, est l'un des pays les plus stables d'Afrique ; ce sont les institutions qui font la différence.", qui: "Daron Acemoglu, James Robinson" }
+        ],
+        etat: "La plupart des économistes estiment que les ressources ne sont pas une malédiction en soi, mais qu'elles aggravent les problèmes là où les institutions sont faibles."
       }
     ]
   }

@@ -48,20 +48,43 @@ HISTOIRE.carte = (function () {
     'perou': /^(Moche|Nazca|Huari Empire|Inca Empire|Viceroyalty of Peru|Peru)$/,
     'colombie': /^(Muisca|Viceroyalty of New Granada|Gran Colombia|Colombia|New Granada)$/,
     'chili': /^(Chile)$/,
-    'venezuela': /^(Venezuela)$/
+    'venezuela': /^(Venezuela)$/,
+    'mexique': /^(Teotihuacan|Toltec Empire|Aztec Empire|Viceroyalty of New Spain|Mexico)$/,
+    'canada': /^(New France|Quebec|Rupert's Land|Canada)$/,
+    'cuba': /^(Cuba|Cuba \(Spain\))$/,
+    'haiti': /^(Haiti|Hispaniola \(Spain\))$/,
+    'egypte': /^(Egypt|Ptolemaic Kingdom|Fatimid Caliphate|Mamluke Sultanate|Harer \(Egypt\))$/,
+    'maroc': /^(Mauretania|Idrisid Caliphate|Almoravid dynasty|Almohad Caliphate|Morocco|Watassid Morocco|Morocco \(France\)|Spanish Morocco)$/,
+    'algerie': /^(Numidia|Zayyanid Caliphate|Algiers|Algeria|Algeria \(FR\)|Algeria \(France\))$/,
+    'nigeria': /^(Kanem|Kanem-Bornu|Hausa States|Oyo|Benin|Sokoto Caliphate|Nigeria)$/,
+    'senegal': /^(Takrur|Senegal|Senegal \(FR\))$/,
+    'mali': /^(Empire of Ghana|Ghana|Mali|Songhai)$/,
+    'ethiopie': /^(Axum|Ethiopia|Abyssinia|Ethiopia \(Italy\))$/,
+    'rdc': /^(Congo|Luba|Lunda|Belgian Congo|Zaire|Zaire \(Belgium\))$/,
+    'kenya': /^(Kenya|British East Africa)$/,
+    'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
+
+  /* Noms ambigus : valables seulement avant une certaine annee de carte
+     (le royaume du Benin n'est pas l'Etat moderne, l'empire du Ghana n'est pas le Ghana actuel). */
+  var VALIDE_AVANT = { 'Benin': 1800, 'Congo': 1890, 'Ghana': 1300 };
+  function teste(re, nom) {
+    if (!nom || !re.test(nom)) return false;
+    var lim = VALIDE_AVANT[nom];
+    return !lim || anneeCarte(etat.annee) < lim;
+  }
 
   function rattache(f) {
     var re = CORRESPONDANCES[etat.filtre];
-    return re ? (re.test(f.n) || re.test(f.s)) : false;
+    return re ? (teste(re, f.n) || teste(re, f.s)) : false;
   }
 
   /* Pays du site auquel appartient une entite de la carte (ou null) */
   function paysDeEntite(f) {
     // d'abord le nom propre de l'entite (l'Ilkhanat mene a l'Iran), puis sa tutelle (une colonie mene a la metropole)
     var id;
-    for (id in CORRESPONDANCES) if (CORRESPONDANCES[id].test(f.n)) return id;
-    for (id in CORRESPONDANCES) if (f.s && CORRESPONDANCES[id].test(f.s)) return id;
+    for (id in CORRESPONDANCES) if (teste(CORRESPONDANCES[id], f.n)) return id;
+    for (id in CORRESPONDANCES) if (teste(CORRESPONDANCES[id], f.s)) return id;
     return null;
   }
 
