@@ -18,7 +18,13 @@ HISTOIRE.carte = (function () {
     'chine': /^(Han|Jin|Jin Empire|Han Zhao|Toba Wei|Sui Empire|Tang Empire|Song Empire|Great Khanate|Ming Empire|Ming Chinese Empire|Post-Ming Warlords|Qing Empire|China|Chinese [Ww]arlords)$/,
     'japon': /^(Yamato|Japan.*|Imperial Japan.*|Shogun Japan.*|Empire of Japan)$/,
     'coree': /^(Silla|Koguryo|Paekche|Goryeo|Korea.*)$/,
-    'inde': /^(Kushan Empire|Kushan Principalities|Gupta Empire|Chola|Cholas|Chola Empire|Sultanate of Delhi|Vijayanagara|Mughal Empire|Maratha|Maratha Confederacy|British East India Company|British Raj|India)$/
+    'inde': /^(Kushan Empire|Kushan Principalities|Gupta Empire|Chola|Cholas|Chola Empire|Sultanate of Delhi|Vijayanagara|Mughal Empire|Maratha|Maratha Confederacy|British East India Company|British Raj|India)$/,
+    'mongolie': /^(Xiongnu|Southern Xiongnu|S\. Xiongnu|Göktürks|Uyghurs|Mongols|Mongol Empire|Oirat Confederation|Mongolia)$/,
+    'iran': /^(Parthian Empire|Persia|Persi|Sasanian Empire|Samanid Empire|Buyid Emirate|Buyid dynasty|Seljuk Empire|Ilkhanate|Timurid Empire|Timurid Emirates|Safavid Empire|Iran)$/,
+    'turquie': /^(Eastern Roman Empire|Byzantine Empire|Seljuk Caliphate|Ottoman Empire|Ottoman Sultanate|Republic of Turkey|Turkey)$/,
+    'vietnam': /^(Annam|Cochin China|Tonkin|Vietnam)$/,
+    'thailande': /^(Dvaravati|Thai Kingdoms|Kingdom of Sukhotai|Sukhothai|Ayutthaya|Lan Na|Siam|Thailand)$/,
+    'indonesie': /^(Mataram|Srivijaya Empire|East Java|Kediri|Aceh|Dutch East Indies|Netherlands Indies|Neterlands|Indonesia)$/
   };
 
   function rattache(f) {
@@ -28,9 +34,10 @@ HISTOIRE.carte = (function () {
 
   /* Pays du site auquel appartient une entite de la carte (ou null) */
   function paysDeEntite(f) {
-    for (var id in CORRESPONDANCES) {
-      if (CORRESPONDANCES[id].test(f.n) || CORRESPONDANCES[id].test(f.s)) return id;
-    }
+    // d'abord le nom propre de l'entite (l'Ilkhanat mene a l'Iran), puis sa tutelle (une colonie mene a la metropole)
+    var id;
+    for (id in CORRESPONDANCES) if (CORRESPONDANCES[id].test(f.n)) return id;
+    for (id in CORRESPONDANCES) if (f.s && CORRESPONDANCES[id].test(f.s)) return id;
     return null;
   }
 

@@ -29,7 +29,7 @@
       '<section class="accueil pointilles">' +
         '<p class="surtitre">Projet</p>' +
         '<h1 class="titre-geant">Zones grises</h1>' +
-        '<p class="sous-titre">L\'histoire des pays d\'Europe et d\'Asie depuis l\'an 1, sans noir ni blanc.</p>' +
+        '<p class="sous-titre">L\'histoire des pays d\'Europe et d\'Asie depuis l\'an 1, avec ses certitudes, ses débats et ses zones d\'ombre.</p>' +
         '<hr class="separateur">' +
         '<div class="cartes">' +
           '<a class="carte carte-noire" href="#/carte"><h3>Explorer la carte</h3><p>Faites défiler deux mille ans de frontières et retrouvez les événements là où ils ont eu lieu.</p><span class="bouton bouton-blanc">Ouvrir la carte</span></a>' +
@@ -63,7 +63,7 @@
     }).join('');
     app.innerHTML =
       '<section class="pointilles"><div class="entete-claire conteneur"><p class="surtitre">Pays et régions</p><h1 class="titre-1">Choisir<br>un pays</h1>' +
-      '<p class="chapo">Dix pays pour commencer, regroupés en cinq régions. D\'autres suivront.</p></div>' +
+      '<p class="chapo">' + HISTOIRE.pays.length + ' pays regroupés en ' + HISTOIRE.regions.length + ' régions. D\'autres suivront.</p></div>' +
       '<div class="conteneur">' + html + '</div></section>';
     animer();
   }
@@ -203,7 +203,7 @@
     document.body.className = '';
     app.innerHTML =
       '<section class="pointilles"><div class="entete-claire conteneur"><p class="surtitre">Méthode</p><h1 class="titre-1">Pourquoi<br>« zones grises »</h1>' +
-      '<p class="chapo">L\'histoire n\'est ni noire ni blanche. Elle repose sur des sources incomplètes, lues par des historiens qui ne sont pas d\'accord entre eux, et souvent récupérée par le présent.</p></div></section>' +
+      '<p class="chapo">En histoire, il y a rarement d\'un côté les bons et de l\'autre les méchants, ni une seule version des faits. L\'histoire repose sur des sources incomplètes, lues par des historiens qui ne sont pas d\'accord entre eux, et souvent récupérée par le présent.</p></div></section>' +
       '<div class="conteneur section"><div class="texte-long">' +
         '<h2>Comment lire une phase</h2>' +
         '<div class="legende">' +

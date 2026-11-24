@@ -59,21 +59,21 @@ HISTOIRE.regions = [
     ]
   },
   {
-    id: 'asie-est',
-    nom: "Asie de l'Est",
-    chapo: "Un monde organisé autour de la Chine, de son écriture, de ses classiques et de son système tributaire, où la Corée et le Japon ont construit des voies propres.",
+    id: 'asie-ouest',
+    nom: "Asie de l'Ouest",
+    chapo: "Entre Méditerranée et plateau iranien, le carrefour des empires : Rome et la Perse, puis les Seldjoukides, les Ottomans et les Safavides.",
     texte: [
-      "Pendant deux millénaires, la Chine sert de référence à ses voisins : écriture, bouddhisme venu d'Inde par son intermédiaire, confucianisme, modèles administratifs. La Corée et le Japon adoptent ces éléments en les transformant profondément, et l'idée d'une simple « copie » ne résiste pas à l'examen.",
-      "Au XIXe siècle, l'arrivée des puissances occidentales bouleverse cet ordre. Le Japon se modernise à marche forcée puis colonise la Corée et envahit la Chine. Les mémoires de cette période divisent encore la région."
+      "Pendant l'Antiquité tardive, l'Anatolie et le plateau iranien sont les deux rives d'une rivalité millénaire entre Rome et la Perse. Les conquêtes arabes du VIIe siècle bouleversent l'ensemble, puis des dynasties turques venues d'Asie centrale s'imposent du XIe au XVIe siècle.",
+      "À partir du XVIe siècle, l'Empire ottoman sunnite et l'Iran safavide chiite structurent la région. Au XXe siècle, la Turquie d'Atatürk et l'Iran des Pahlavi suivent des voies de modernisation autoritaire comparables, avant que leurs chemins divergent avec la révolution iranienne de 1979."
     ],
     debats: [
       {
-        question: "Le système tributaire chinois était-il une domination ou un cadre d'échanges ?",
+        question: "Le clivage sunnites-chiites est-il un conflit millénaire ?",
         positions: [
-          { titre: "Hiérarchie sinocentrée", texte: "Les voisins reconnaissaient la supériorité de l'empereur chinois, dans un ordre inégal où la Chine était au centre.", qui: "John K. Fairbank" },
-          { titre: "Diplomatie souple", texte: "Les rituels de tribut étaient souvent une formalité permettant le commerce. Les cours coréenne, vietnamienne ou japonaise en jouaient selon leurs intérêts.", qui: "Takeshi Hamashita, travaux récents" }
+          { titre: "Une rivalité ancienne", texte: "La division remonte à la succession du Prophète au VIIe siècle et structure depuis l'histoire de la région.", qui: "Lecture répandue dans les médias" },
+          { titre: "Une rivalité politique récente", texte: "Le clivage a été réactivé par des rivalités d'États : Ottomans contre Safavides au XVIe siècle, puis Iran contre Arabie saoudite après 1979. Pendant de longues périodes, les communautés ont coexisté.", qui: "Vali Nasr, Toby Matthiesen" }
         ],
-        etat: "Le modèle unique de Fairbank est aujourd'hui jugé trop rigide. On insiste sur la diversité des relations selon les époques et les partenaires."
+        etat: "Les historiens rejettent l'idée d'une haine éternelle et insistent sur les usages politiques de la religion selon les époques."
       }
     ]
   },
@@ -93,6 +93,44 @@ HISTOIRE.regions = [
           { titre: "Des catégories coloniales", texte: "Les recensements britanniques ont figé des identités fluides et la politique coloniale a joué les communautés les unes contre les autres.", qui: "Bernard Cohn, Gyanendra Pandey" }
         ],
         etat: "Les historiens reconnaissent des différences anciennes mais aussi des pratiques mêlées. Le rôle colonial dans la rigidification des catégories est largement admis, sans tout expliquer."
+      }
+    ]
+  },
+  {
+    id: 'asie-est',
+    nom: "Asie de l'Est",
+    chapo: "Un monde organisé autour de la Chine, de son écriture, de ses classiques et de son système tributaire, où la Corée et le Japon ont construit des voies propres.",
+    texte: [
+      "Pendant deux millénaires, la Chine sert de référence à ses voisins : écriture, bouddhisme venu d'Inde par son intermédiaire, confucianisme, modèles administratifs. La Corée et le Japon adoptent ces éléments en les transformant profondément, et l'idée d'une simple « copie » ne résiste pas à l'examen.",
+      "Au XIXe siècle, l'arrivée des puissances occidentales bouleverse cet ordre. Le Japon se modernise à marche forcée puis colonise la Corée et envahit la Chine. Les mémoires de cette période divisent encore la région."
+    ],
+    debats: [
+      {
+        question: "Le système tributaire chinois était-il une domination ou un cadre d'échanges ?",
+        positions: [
+          { titre: "Hiérarchie sinocentrée", texte: "Les voisins reconnaissaient la supériorité de l'empereur chinois, dans un ordre inégal où la Chine était au centre.", qui: "John K. Fairbank" },
+          { titre: "Diplomatie souple", texte: "Les rituels de tribut étaient souvent une formalité permettant le commerce. Les cours coréenne, vietnamienne ou japonaise en jouaient selon leurs intérêts.", qui: "Takeshi Hamashita, travaux récents" }
+        ],
+        etat: "Le modèle unique de Fairbank est aujourd'hui jugé trop rigide. On insiste sur la diversité des relations selon les époques et les partenaires."
+      }
+    ]
+  },
+  {
+    id: 'asie-sud-est',
+    nom: "Asie du Sud-Est",
+    chapo: "Entre l'Inde et la Chine, un monde de royaumes maritimes et de rizières, de temples hindous et bouddhistes, de sultanats, puis de colonies européennes.",
+    texte: [
+      "L'Asie du Sud-Est a longtemps été décrite comme une région « sous influence », indianisée d'un côté, sinisée de l'autre. Les historiens montrent aujourd'hui que ses sociétés ont choisi et transformé ces influences, et qu'elles avaient leurs propres traits, comme une place souvent importante des femmes dans le commerce.",
+      "Du XVIe au XXe siècle, la région est presque entièrement colonisée : Néerlandais en Indonésie, Français en Indochine, Britanniques en Birmanie et en Malaisie, Espagnols puis Américains aux Philippines. Seul le Siam reste indépendant. Les indépendances sont souvent arrachées par la guerre."
+    ],
+    debats: [
+      {
+        question: "Faut-il voir l'Asie du Sud-Est comme une région à part entière ?",
+        positions: [
+          { titre: "Un carrefour sans unité", texte: "La région serait un simple espace intermédiaire entre l'Inde et la Chine, sans identité propre.", qui: "Historiographie coloniale" },
+          { titre: "Une civilisation commune", texte: "Riziculture, maisons sur pilotis, place des femmes, commerce maritime : la région partage des traits profonds qui précèdent les influences extérieures.", qui: "Anthony Reid, Denys Lombard" }
+        ],
+        etat: "La plupart des historiens considèrent l'Asie du Sud-Est comme une région cohérente, tout en soulignant sa grande diversité interne."
       }
     ]
   }

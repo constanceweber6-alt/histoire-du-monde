@@ -171,7 +171,7 @@ HISTOIRE.ajouterPays({
         { annee: 1848, titre: "Parlement de Francfort", lieu: [50.11, 8.68] },
         { annee: 1871, titre: "Proclamation de l'Empire allemand à Versailles", lieu: [48.8, 2.12] },
         { annee: 1884, titre: "Conférence de Berlin sur l'Afrique", lieu: [52.51, 13.38] },
-        { annee: 1904, titre: "Génocide des Herero et des Nama", lieu: [-22.56, 17.08] },
+        { annee: 1904, titre: "Génocide des Herero et des Nama en Namibie" },
         { annee: 1918, titre: "Révolution et fin de l'Empire", lieu: [52.52, 13.4] }
       ]
     },
