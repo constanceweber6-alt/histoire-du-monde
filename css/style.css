@@ -419,3 +419,8 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   .frise-axe { margin-left: 100px; }
   .phase { padding-top: 60px; }
 }
+
+/* Fenetres moyennes : les credits de la carte passeraient sous le curseur */
+@media (max-width: 1180px) {
+  .carte-credit { display: none; }
+}
