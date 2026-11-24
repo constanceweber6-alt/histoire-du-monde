@@ -102,6 +102,16 @@ HISTOIRE.carte = (function () {
     'albanie': /^(Albania)$/,
     'bielorussie': /^(Principality of Polotsk|White Russia|Byelarus)$/,
     'moldavie': /^(Moldova)$/,
+    'georgie': /^(Georgian Kingdom|Kingdom of Georgia|Georgia)$/,
+    'azerbaidjan': /^(Caucasian Albania|Shirvan|Azerbaijan)$/,
+    'jordanie': /^(Nabatean Kingdom|Jordan)$/,
+    'yemen': /^(Himyarite Kingdom|Yemen|Yemen \(UK\))$/,
+    'emirats': /^(Trucial Oman|United Arab Emirates)$/,
+    'qatar': /^(Qatar)$/,
+    'oman': /^(Muscat|Muscat and Oman|Oman|Oman \(British Raj\))$/,
+    'koweit': /^(Kuwait)$/,
+    'nepal': /^(Nepal)$/,
+    'sri-lanka': /^(Sinhalese kingdom|Sinhalese kingdoms|Kandy|Ceylon|Ceylon \(Dutch\)|Sri Lanka)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
