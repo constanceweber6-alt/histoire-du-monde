@@ -29,7 +29,7 @@
       '<section class="accueil pointilles">' +
         '<p class="surtitre">Projet</p>' +
         '<h1 class="titre-geant">Zones grises</h1>' +
-        '<p class="sous-titre">L\'histoire des pays d\'Europe et d\'Asie depuis l\'an 1, avec ses certitudes, ses débats et ses zones d\'ombre.</p>' +
+        '<p class="sous-titre">L\'histoire des pays d\'Europe, d\'Asie et des Amériques depuis l\'an 1, avec ses certitudes, ses débats et ses zones d\'ombre.</p>' +
         '<hr class="separateur">' +
         '<div class="cartes">' +
           '<a class="carte carte-noire" href="#/carte"><h3>Explorer la carte</h3><p>Faites défiler deux mille ans de frontières et retrouvez les événements là où ils ont eu lieu.</p><span class="bouton bouton-blanc">Ouvrir la carte</span></a>' +

@@ -152,5 +152,43 @@ HISTOIRE.regions = [
         etat: "La plupart des historiens considèrent l'Asie du Sud-Est comme une région cohérente, tout en soulignant sa grande diversité interne."
       }
     ]
+  },
+  {
+    id: 'amerique-nord',
+    nom: "Amérique du Nord",
+    chapo: "Des sociétés autochtones très diverses, puis des colonies européennes qui deviennent la première puissance mondiale.",
+    texte: [
+      "Avant 1492, l'Amérique du Nord compte des centaines de peuples, des bâtisseurs de tertres du Mississippi aux Pueblos du Sud-Ouest. Les épidémies venues d'Europe, puis la conquête, réduisent fortement leur nombre.",
+      "Les colonies britanniques deviennent les États-Unis en 1776. Le pays s'étend vers l'ouest, abolit l'esclavage après une guerre civile et devient au XXe siècle une superpuissance, dont l'histoire reste marquée par la question raciale."
+    ],
+    debats: [
+      {
+        question: "Combien d'habitants comptait l'Amérique du Nord en 1492 ?",
+        positions: [
+          { titre: "Une terre presque vide", texte: "Les estimations anciennes parlaient d'environ un million d'habitants au nord du Mexique.", qui: "Alfred Kroeber (années 1930)" },
+          { titre: "Une terre peuplée", texte: "Des estimations plus récentes vont de 2 à plus de 10 millions, avant un effondrement causé par les épidémies.", qui: "Henry Dobyns, Russell Thornton" }
+        ],
+        etat: "Les chiffres restent très débattus. L'idée d'un continent presque vide est abandonnée."
+      }
+    ]
+  },
+  {
+    id: 'amerique-sud',
+    nom: "Amérique du Sud",
+    chapo: "Des Andes à l'Amazonie, des empires autochtones, trois siècles de colonisation ibérique, des indépendances précoces et une histoire politique agitée.",
+    texte: [
+      "L'Amérique du Sud a vu naître des sociétés complexes, des Moches à l'Empire inca. Au XVIe siècle, Espagnols et Portugais conquièrent le continent. L'argent du Potosí et le sucre du Brésil reposent sur le travail forcé des autochtones et l'esclavage de millions d'Africains.",
+      "Les indépendances sont acquises entre 1810 et 1825. Le XIXe siècle est celui des caudillos, le XXe celui des dictatures militaires, souvent soutenues par les États-Unis pendant la guerre froide. Depuis les années 1980, la démocratie s'est installée, mais les inégalités restent parmi les plus fortes du monde."
+    ],
+    debats: [
+      {
+        question: "Les indépendances ont-elles changé la société ?",
+        positions: [
+          { titre: "Une rupture", texte: "Les indépendances ont fondé des républiques, aboli peu à peu l'esclavage et le tribut indien et ouvert une ère nouvelle.", qui: "Récits nationaux" },
+          { titre: "Une continuité", texte: "Les élites créoles ont remplacé les Espagnols sans changer la hiérarchie sociale. Les autochtones et les descendants d'esclaves sont restés exclus.", qui: "Historiens de l'école de la dépendance, John Lynch" }
+        ],
+        etat: "Les historiens nuancent les deux lectures : rupture politique réelle, mais continuités sociales profondes."
+      }
+    ]
   }
 ];

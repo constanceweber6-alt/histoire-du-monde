@@ -2,7 +2,7 @@
 HISTOIRE.carte = (function () {
   var U = HISTOIRE.util;
   var NS = 'http://www.w3.org/2000/svg';
-  var VUE = { x: 0, y: 0, w: 1379, h: 900 };
+  var VUE = { x: 0, y: 0, w: 2681, h: 1340 };
   var etat = { annee: 1, lecture: null, filtre: '', vue: null, chargees: {} };
   var GRIS = ['#3b3b3b', '#474747', '#545454', '#626262', '#717171', '#808080', '#8f8f8f'];
 
@@ -41,7 +41,14 @@ HISTOIRE.carte = (function () {
     'arabie-saoudite': /^(Hejaz|Nejd|Arabia|Arabia \(Nejd\)|Saudi Arabia)$/,
     'pays-bas': /^(Frisians|Habsburg Netherlands|Dutch Republic|Batavian Republic|Netherlands)$/,
     'suede': /^(Swedes|Swedes and Goths|Sweden|Sweden\u2013Norway)$/,
-    'hongrie': /^(Magyars|Hungary|Kingdom of Hungary|Imperial Hungary|Austria Hungary|Austro-Hungarian Empire)$/
+    'hongrie': /^(Magyars|Hungary|Kingdom of Hungary|Imperial Hungary|Austria Hungary|Austro-Hungarian Empire)$/,
+    'etats-unis': /^(United States of America|United States|British American colonies)$/,
+    'bresil': /^(Portuguese Brazil|Viceroyalty of Brazil|Kingdom of Brazil|Empire of Brazil|Brazil)$/,
+    'argentine': /^(Viceroyalty of the R\u00edo de la Plata|United Provinces of the R\u00edo de la Plata|Argentina|Argentine Confederation)$/,
+    'perou': /^(Moche|Nazca|Huari Empire|Inca Empire|Viceroyalty of Peru|Peru)$/,
+    'colombie': /^(Muisca|Viceroyalty of New Granada|Gran Colombia|Colombia|New Granada)$/,
+    'chili': /^(Chile)$/,
+    'venezuela': /^(Venezuela)$/
   };
 
   function rattache(f) {
@@ -194,7 +201,7 @@ HISTOIRE.carte = (function () {
 
   function zoomer(f, cx, cy) {
     var v = etat.vue;
-    var nw = Math.max(120, Math.min(VUE.w * 1.4, v.w / f));
+    var nw = Math.max(160, Math.min(VUE.w * 1.4, v.w / f));
     var r = nw / v.w;
     if (cx == null) { cx = v.x + v.w / 2; cy = v.y + v.h / 2; }
     v.x = cx - (cx - v.x) * r; v.y = cy - (cy - v.y) * r;
@@ -272,7 +279,7 @@ HISTOIRE.carte = (function () {
     var grad = [1, 400, 800, 1200, 1600, 2000].map(function (a) { return '<span style="left:' + ((a - 1) / 2025 * 100).toFixed(2) + '%">' + a + '</span>'; }).join('');
     app.innerHTML =
       '<section class="carte-page">' +
-        '<svg id="carte-svg" viewBox="0 0 1379 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte des frontières historiques de l\'Europe et de l\'Asie">' +
+        '<svg id="carte-svg" viewBox="0 0 2681 1340" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte des frontières historiques du monde">' +
           '<g id="couche-etats"></g><g id="couche-marqueurs"></g>' +
         '</svg>' +
         '<div class="carte-haut">' +

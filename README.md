@@ -1,15 +1,15 @@
 # Zones grises · Histoire du monde
 
-Ce site raconte l'histoire des pays d'Europe et d'Asie depuis l'an 1, phase par phase, en montrant ce qui fait consensus, ce qui fait débat et ce qu'on raconte moins. L'idée : en histoire, il y a rarement une seule version des faits, ni d'un côté les bons et de l'autre les méchants.
+Ce site raconte l'histoire des pays d'Europe, d'Asie et des Amériques depuis l'an 1, phase par phase, en montrant ce qui fait consensus, ce qui fait débat et ce qu'on raconte moins. L'idée : en histoire, il y a rarement une seule version des faits, ni d'un côté les bons et de l'autre les méchants.
 
 ## Ce que contient le site
 
-- **Carte interactive** : les frontières de l'an 1 à aujourd'hui, avec un curseur temporel, une lecture automatique et les événements placés sur la carte. Le filtre par pays surligne ses territoires, colonies comprises.
+- **Carte interactive** : les frontières du monde entier de l'an 1 à aujourd'hui, avec un curseur temporel, une lecture automatique et les événements placés sur la carte. Le filtre par pays surligne ses territoires, colonies comprises.
 - **Frise comparée** : les phases de chaque pays côte à côte, filtrables par région.
-- **Pages pays** : pour chaque phase, le récit, ce qui fait consensus, les débats (positions opposées puis état actuel de la recherche), ce qu'on raconte moins, les acteurs de la période (plus de 500 personnes, connues ou oubliées) et des repères datés.
-- **Pages régions** : Europe de l'Ouest, Europe du Sud, Europe de l'Est, Asie de l'Ouest, Asie centrale, Asie de l'Est, Asie du Sud, Asie du Sud-Est, avec un débat transversal par région.
+- **Pages pays** : pour chaque phase, le récit, ce qui fait consensus, les débats (positions opposées puis état actuel de la recherche), ce qu'on raconte moins, les acteurs de la période (plus de 900 personnes, connues ou oubliées) et des repères datés.
+- **Pages régions** : Europe de l'Ouest, Europe du Sud, Europe de l'Est, Asie de l'Ouest, Asie centrale, Asie de l'Est, Asie du Sud, Asie du Sud-Est, Amérique du Nord, Amérique du Sud, avec un débat transversal par région.
 
-Pays disponibles : France, Royaume-Uni, Allemagne, Pays-Bas, Suède, Italie, Espagne, Grèce, Pologne, Hongrie, Ukraine, Russie, Chine, Japon, Corée, Mongolie, Inde, Pakistan, Afghanistan, Iran, Turquie, Irak, Syrie, Israël et Palestine, Arabie saoudite, Kazakhstan, Ouzbékistan, Birmanie, Thaïlande, Cambodge, Vietnam, Indonésie, Philippines.
+Pays disponibles : France, Royaume-Uni, Allemagne, Pays-Bas, Suède, Italie, Espagne, Grèce, Pologne, Hongrie, Ukraine, Russie, Chine, Japon, Corée, Mongolie, Inde, Pakistan, Afghanistan, Iran, Turquie, Irak, Syrie, Israël et Palestine, Arabie saoudite, Kazakhstan, Ouzbékistan, Birmanie, Thaïlande, Cambodge, Vietnam, Indonésie, Philippines, États-Unis, Brésil, Argentine, Pérou, Colombie, Chili, Venezuela.
 
 ## Lancer le site en local
 

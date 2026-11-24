@@ -1,6 +1,6 @@
 import json, math, sys, os
 SRC = sys.argv[1]; OUT = sys.argv[2]
-LON0, LON1, LAT0, LAT1 = -25, 155, -12, 78
+LON0, LON1, LAT0, LAT1 = -170, 180, -56, 78
 KX = 10 * math.cos(math.radians(40))
 def proj(lon, lat): return ((lon - LON0) * KX, (LAT1 - lat) * 10)
 def dp(pts, tol):
