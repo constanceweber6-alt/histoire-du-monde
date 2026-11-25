@@ -317,7 +317,7 @@ body.sombre .carte { background: var(--noir-3); border-color: #2e2e2e; color: va
 #carte-svg .terre { fill: #303030; stroke: #191919; stroke-width: 0.6; }
 #carte-svg .etat { stroke: #141414; stroke-width: 0.7; transition: fill 0.15s; vector-effect: non-scaling-stroke; }
 #carte-svg .etat:hover { fill: var(--accent) !important; fill-opacity: 0.55; }
-#carte-svg .etat.lien { cursor: pointer; }
+#carte-svg .etat.lien { cursor: pointer; fill-opacity: 0.88; }
 #carte-svg .marqueur { cursor: pointer; outline: none; }
 #carte-svg .marqueur:focus circle.point { fill: var(--blanc); }
 #carte-svg .etat.choisi { fill: var(--blanc) !important; }
@@ -398,10 +398,10 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   transition: transform 0.15s;
 }
 .frise-bloc:hover { transform: translateY(-2px); outline: 2px solid var(--accent); z-index: 3; }
-.frise-bloc.t0 { background: #f2f2f2; color: #111; }
-.frise-bloc.t1 { background: #b9b9b9; color: #111; }
-.frise-bloc.t2 { background: #6d6d6d; color: #fff; }
-.frise-bloc.t3 { background: #3a3a3a; color: #fff; }
+.frise-bloc { color: #1a1a1a; border-color: rgba(0,0,0,0.35); }
+.frise-puce { flex: none; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; }
+.frise-legende { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: center; align-items: center; margin-top: 22px; font-size: 12px; font-weight: 700; }
+.frise-legende .discret { font-weight: 600; }
 .frise-repere { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.06); pointer-events: none; }
 
 /* ---------- Animations ---------- */
@@ -462,3 +462,22 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .acteur strong { display: block; font-size: 15.5px; line-height: 1.25; }
 .acteur-dates { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--gris-3); margin: 3px 0 6px; }
 .acteur p { margin: 0; font-size: 14px; line-height: 1.5; color: #d4d4d4; }
+
+/* Legende de la carte et pastilles de couleur */
+.pastille-couleur { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: #e8e8e8; }
+.pastille-couleur i { flex: none; width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.18); }
+.pastille-couleur i.rond { border-radius: 50%; background: var(--accent); border-color: #0b0b0b; box-shadow: 0 0 0 4px rgba(0,255,136,0.18); width: 11px; height: 11px; margin: 0 2px; }
+.carte-legende {
+  position: absolute; left: 24px; bottom: 190px; width: 250px;
+  background: rgba(17, 17, 17, 0.9); backdrop-filter: blur(10px);
+  border: 1px solid #2c2c2c; border-radius: 14px; padding: 10px 14px;
+}
+.carte-legende summary { cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gris-3); list-style: none; }
+.carte-legende summary::-webkit-details-marker { display: none; }
+.carte-legende summary::after { content: " +"; }
+.carte-legende[open] summary::after { content: " −"; }
+.carte-legende .legende-titre { margin: 10px 0 6px; font-size: 11px; color: var(--gris-3); font-weight: 700; }
+.legende-liste { display: grid; gap: 6px; margin-bottom: 8px; }
+@media (max-width: 640px) {
+  .carte-legende { left: 16px; bottom: 200px; width: auto; max-width: calc(100% - 32px); }
+}

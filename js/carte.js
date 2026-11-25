@@ -15,7 +15,7 @@ HISTOIRE.carte = (function () {
     'italie': /^(Roman Empire|Western Roman Empire|Rome \(.*\)|Lombard principalities|Lombard duchies|Papal States|Venice|Lombardy|Italy|Kingdom of Italy)$/,
     'espagne': /^(Visigoths|Visigothic Kingdom|Navarre|Castilla|Castile|Castille|Aragón|Granada|Spain|Spanish Habsburg|.*C[oó]rdoba.*)$/,
     'russie': /^(Rus' Khaganate|Kyivan Rus|Kievan Rus|Other Rus Principalities|Principality of Novgorod|Principality of Vladimir-Suzdal|Novgorod|Tsardom of Muscovy|Russian Empire|Russia|USSR|Soviet Union)$/,
-    'chine': /^(Han|Jin|Jin Empire|Han Zhao|Toba Wei|Sui Empire|Tang Empire|Song Empire|Great Khanate|Ming Empire|Ming Chinese Empire|Post-Ming Warlords|Qing Empire|China|Chinese [Ww]arlords)$/,
+    'chine': /^(Han|Jin|Jin Empire|Manchu Empire|Han Zhao|Toba Wei|Sui Empire|Tang Empire|Song Empire|Great Khanate|Ming Empire|Ming Chinese Empire|Post-Ming Warlords|Qing Empire|China|Chinese [Ww]arlords)$/,
     'japon': /^(Yamato|Japan.*|Imperial Japan.*|Shogun Japan.*|Empire of Japan)$/,
     'coree': /^(Silla|Koguryo|Paekche|Goryeo|Korea.*)$/,
     'inde': /^(Kushan Empire|Kushan Principalities|Gupta Empire|Chola|Cholas|Chola Empire|Sultanate of Delhi|Vijayanagara|Mughal Empire|Maratha|Maratha Confederacy|British East India Company|British Raj|India)$/,
@@ -182,6 +182,34 @@ HISTOIRE.carte = (function () {
     return GRIS[h % GRIS.length];
   }
 
+  var TRANSCONTINENTAUX = { russie: 1, turquie: 1 };
+  function parNomPropre(f) {
+    for (var id in CORRESPONDANCES) if (teste(id, f.n)) return true;
+    return false;
+  }
+
+  /* Continent d'apres la position moyenne du trace (projection inverse de U.projeter) */
+  function continentGeo(d) {
+    var nb = d.match(/-?\d+(\.\d+)?/g) || [], sx = 0, sy = 0, n = 0;
+    for (var i = 0; i + 1 < nb.length; i += 2) { sx += +nb[i]; sy += +nb[i + 1]; n++; }
+    if (!n) return HISTOIRE.CONTINENTS[1];
+    var kx = 10 * Math.cos(40 * Math.PI / 180);
+    var lon = sx / n / kx - 180, lat = 84 - sy / n / 10;
+    var C = {}; HISTOIRE.CONTINENTS.forEach(function (c) { C[c.id] = c; });
+    if (lon < -25 || (lon > 160 && lat > 0)) return C.amerique;
+    if ((lat < -10 && lon > 110) || (lon > 128 && lat < 0) || lon > 160) return C.oceanie;
+    if (lat < 37.5 && lon >= -25 && lon < 51.5 && !(lon > 34.5 && lat > 11.5)) return C.afrique;
+    if ((lat >= 35 && lon < 26) || (lat >= 45 && lon < 60)) return C.europe;
+    return C.asie;
+  }
+
+  /* Ton clair d'un continent, varie selon l'entite */
+  function tonContinent(cont, nom) {
+    var tons = cont.tons, h = 0;
+    for (var i = 0; i < nom.length; i++) h = (h * 31 + nom.charCodeAt(i)) >>> 0;
+    return tons[h % tons.length];
+  }
+
   function anneeCarte(a) {
     var liste = HISTOIRE.anneesCartes, r = liste[0];
     for (var i = 0; i < liste.length; i++) if (liste[i] <= a) r = liste[i];
@@ -242,11 +270,18 @@ HISTOIRE.carte = (function () {
         p.setAttribute('d', f.d);
         if (f.n) {
           p.setAttribute('class', 'etat' + (etat.filtre && rattache(f) ? ' choisi' : ''));
-          p.setAttribute('fill', teinte(f.s || f.n));
           p.dataset.nom = f.n;
           if (f.s && f.s !== f.n) p.dataset.dep = f.s;
           var idp = paysDeEntite(f);
-          if (idp) { p.dataset.pays = idp; p.classList.add('lien'); }
+          if (idp) {
+            p.dataset.pays = idp; p.classList.add('lien');
+            // couleur du continent ou se trouve le territoire (l'Inde britannique reste asiatique) ;
+            // seuls les empires a cheval sur deux continents gardent la couleur de leur fiche
+            var cont = (TRANSCONTINENTAUX[idp] && parNomPropre(f)) ? U.continentDuPays(idp) : continentGeo(f.d);
+            p.setAttribute('fill', tonContinent(cont, f.s || f.n));
+          } else {
+            p.setAttribute('fill', teinte(f.s || f.n));
+          }
         } else {
           p.setAttribute('class', 'terre');
         }
@@ -389,7 +424,16 @@ HISTOIRE.carte = (function () {
           '<input type="range" id="curseur-annee" min="1" max="2026" step="1" value="' + etat.annee + '" aria-label="Choisir une année"></div>' +
           '<div class="graduations">' + grad + '</div>' +
         '</div>' +
-        '<p class="carte-credit"><span id="carte-source"></span>. Données : <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> (A. Ourednik, GPL-3.0), noms en anglais. Les frontières anciennes sont des approximations. Points verts : événements à ±40 ans, cliquables. En blanc : le pays filtré, colonies comprises.</p>' +
+        '<details class="carte-legende" id="carte-legende"><summary>Légende</summary>' +
+          '<p class="legende-titre">Territoires ayant une fiche</p>' +
+          '<div class="legende-liste">' + U.legendeContinents() + '</div>' +
+          '<div class="legende-liste">' +
+            '<span class="pastille-couleur"><i style="background:#626262"></i>Territoire sans fiche</span>' +
+            '<span class="pastille-couleur"><i style="background:#fff"></i>Pays filtré, colonies comprises</span>' +
+            '<span class="pastille-couleur"><i class="rond"></i>Événement à ±40 ans, cliquable</span>' +
+          '</div>' +
+        '</details>' +
+        '<p class="carte-credit"><span id="carte-source"></span>. Données : <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> (A. Ourednik, GPL-3.0), noms en anglais. Les frontières anciennes sont des approximations.</p>' +
       '</section>';
     var svg = document.getElementById('carte-svg');
     interactions(svg);
@@ -399,6 +443,7 @@ HISTOIRE.carte = (function () {
     document.getElementById('zoom-moins').addEventListener('click', function () { zoomer(1 / 1.4); });
     document.getElementById('zoom-zero').addEventListener('click', function () { etat.vue = { x: VUE.x, y: VUE.y, w: VUE.w, h: VUE.h }; appliquerVue(); });
     document.getElementById('filtre-pays').addEventListener('change', function (e) { etat.filtre = e.target.value; dessiner(); });
+    if (window.innerWidth > 640) document.getElementById('carte-legende').open = true;
     dessiner();
   }
 

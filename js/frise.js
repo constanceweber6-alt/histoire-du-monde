@@ -18,10 +18,11 @@ HISTOIRE.frise = (function () {
     var reperes = '';
     for (var b = 100; b <= 2000; b += 100) reperes += '<div class="frise-repere" style="left:' + (150 + (b - DEBUT) * px).toFixed(1) + 'px"></div>';
     var lignes = HISTOIRE.pays.filter(function (p) { return !filtreRegion || p.region === filtreRegion; }).map(function (p) {
+      var tons = U.continentDuPays(p.id).tons;
       var blocs = p.phases.map(function (ph, i) {
         var d = Math.max(DEBUT, ph.debut), f = Math.min(FIN, ph.fin);
         var g = (d - DEBUT) * px, l = Math.max(6, (f - d) * px - 2);
-        return '<a class="frise-bloc t' + (i % 4) + '" style="left:' + g.toFixed(1) + 'px;width:' + l.toFixed(1) + 'px" href="#/pays/' + p.id + '/' + i + '" title="' + U.esc(ph.titre + ' (' + U.periode(ph.debut, ph.fin) + ')') + '">' + U.esc(ph.titre) + '</a>';
+        return '<a class="frise-bloc" style="background:' + tons[i % 2 ? 1 : (i % 4 ? 2 : 0)] + ';left:' + g.toFixed(1) + 'px;width:' + l.toFixed(1) + 'px" href="#/pays/' + p.id + '/' + i + '" title="' + U.esc(ph.titre + ' (' + U.periode(ph.debut, ph.fin) + ')') + '">' + U.esc(ph.titre) + '</a>';
       }).join('');
       return '<div class="frise-ligne"><a class="frise-nom" href="#/pays/' + p.id + '">' + U.esc(p.nom) + '</a><div class="frise-piste" style="width:' + largeur.toFixed(0) + 'px">' + blocs + '</div></div>';
     }).join('');
@@ -39,6 +40,7 @@ HISTOIRE.frise = (function () {
           '<div class="frise-outils"><button data-region="" class="actif">Tous</button>' + regions + '</div>' +
           '<div class="frise-outils"><button data-zoom="0.7">Vue d\'ensemble</button><button data-zoom="1" class="actif">Normal</button><button data-zoom="2.2">Détail</button></div>' +
         '</div>' +
+        '<div class="frise-legende conteneur">' + U.legendeContinents() + '<span class="discret">Les tons alternent d\'une phase à l\'autre.</span></div>' +
         '<div class="frise-cadre" id="frise-cadre"></div>' +
       '</section>';
     var cadre = document.getElementById('frise-cadre');
