@@ -11,26 +11,9 @@ Ce site raconte l'histoire des pays d'Europe, d'Asie, d'Afrique, des Amériques 
 
 Pays disponibles : France, Royaume-Uni, Allemagne, Pays-Bas, Suède, Italie, Espagne, Grèce, Pologne, Hongrie, Ukraine, Russie, Chine, Japon, Corée, Mongolie, Inde, Pakistan, Afghanistan, Iran, Turquie, Irak, Syrie, Israël et Palestine, Arabie saoudite, Kazakhstan, Ouzbékistan, Birmanie, Thaïlande, Cambodge, Vietnam, Indonésie, Philippines, États-Unis, Brésil, Argentine, Pérou, Colombie, Chili, Venezuela, Mexique, Canada, Cuba, Haïti, Égypte, Maroc, Algérie, Nigeria, Sénégal, Mali, Éthiopie, Kenya, RD Congo, Afrique du Sud, Ghana, Rwanda, Angola, Australie, Nouvelle-Zélande, Bolivie, Équateur, Tanzanie, Fidji, Papouasie-Nouvelle-Guinée, Portugal, Autriche, Roumanie, Irlande, Liban, Arménie, Bangladesh, Tunisie, Côte d'Ivoire, Guatemala, Belgique, Suisse, Tchéquie, Serbie, Danemark, Norvège, Finlande, Soudan, Somalie, Ouganda, Estonie, Lettonie, Lituanie, Slovaquie, Bulgarie, Croatie, Bosnie-Herzégovine, Albanie, Biélorussie, Moldavie, Géorgie, Azerbaïdjan, Jordanie, Yémen, Émirats arabes unis, Qatar, Oman, Koweït, Népal, Sri Lanka, Malaisie, Laos, Taïwan, Singapour, Brunei, Kirghizistan, Tadjikistan, Turkménistan, Bhoutan, Timor oriental, Libye, Cameroun, Madagascar, Zimbabwe, Mozambique, Burkina Faso, Niger, Tchad, Zambie, Soudan du Sud, Paraguay, Uruguay, République dominicaine, Honduras, Nicaragua, Salvador, Costa Rica, Panamá, Jamaïque, Porto Rico, Gabon, Congo, Bénin, Togo, Guinée, Sierra Leone, Liberia, Malawi, Botswana, Namibie.
 
-## Lancer le site en local
-
-Le site est entièrement statique, sans dépendance ni étape de compilation. Il suffit d'ouvrir `index.html` dans un navigateur, ou de lancer un petit serveur :
-
-```bash
-python3 -m http.server 8000
-```
-
-puis d'ouvrir http://localhost:8000.
-
 ## Publier avec GitHub Pages
 
-Dans les réglages du dépôt : **Settings > Pages > Build and deployment**, source **Deploy from a branch**, branche `main`, dossier `/ (root)`. Le site sera en ligne à l'adresse `https://constanceweber6-alt.github.io/histoire-du-monde/`.
-
-## Ajouter un pays
-
-1. Copier un fichier de `data/pays/` (par exemple `japon.js`) et le renommer.
-2. Remplir les champs : `id`, `nom`, `region`, `accroche`, `intro`, puis la liste des `phases`. Chaque phase contient `titre`, `debut`, `fin`, `chapo`, `recit`, `consensus`, `debats`, `moinsConnu` et `evenements`. Les événements avec un `lieu` (`[latitude, longitude]`) apparaissent sur la carte.
-3. Ajouter une ligne `<script src="data/pays/nouveau-pays.js"></script>` dans `index.html`.
-4. Pour que le filtre de la carte surligne le pays, ajouter ses noms d'entités dans `CORRESPONDANCES` (fichier `js/carte.js`).
+Le site est en ligne à l'adresse https://constanceweber6-alt.github.io/histoire-du-monde/ .
 
 ## Structure
 
@@ -47,13 +30,6 @@ data/pays/*.js        contenu des pays
 data/acteurs*.js      acteurs de chaque phase ([nom, dates, rôle])
 data/cartes/*.js      frontières simplifiées par année
 tools/cartes.py       script de génération des cartes
-```
-
-Pour régénérer les cartes à partir des données d'origine :
-
-```bash
-git clone --depth 1 https://github.com/aourednik/historical-basemaps.git
-python3 tools/cartes.py historical-basemaps/geojson data/cartes
 ```
 
 ## Licences et crédits
