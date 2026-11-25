@@ -129,6 +129,16 @@ HISTOIRE.carte = (function () {
     'niger': /^(Niger)$/,
     'tchad': /^(Kanem|Kanem-Bornu|Wadai|Wadai Empire|Chad)$/,
     'zambie': /^(Barotse|Lozi|Northern Rhodesia|Zambia)$/,
+    'paraguay': /^(Tekoh\u00e1 \(Guarani\)|Paraguay)$/,
+    'uruguay': /^(Uruguay)$/,
+    'republique-dominicaine': /^(Santo Domingo \(Spain\)|Dominican Republic)$/,
+    'honduras': /^(Lenca|Honduras)$/,
+    'nicaragua': /^(Mosquito Coast|Nicaragua)$/,
+    'salvador': /^(El Salvador)$/,
+    'costa-rica': /^(Costa Rica)$/,
+    'panama': /^(Panama)$/,
+    'jamaique': /^(Jamaica|Jamaica \(UK\))$/,
+    'porto-rico': /^(Boriken Taino|Puerto Rico)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
