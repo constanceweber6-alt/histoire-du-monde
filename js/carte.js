@@ -139,6 +139,16 @@ HISTOIRE.carte = (function () {
     'panama': /^(Panama)$/,
     'jamaique': /^(Jamaica|Jamaica \(UK\))$/,
     'porto-rico': /^(Boriken Taino|Puerto Rico)$/,
+    'gabon': /^(Gabon)$/,
+    'congo': /^(Teke|Congo \(France\)|Congo)$/,
+    'benin': /^(Dahomey|Benin)$/,
+    'togo': /^(Togoland|Togo)$/,
+    'guinee': /^(Futa Jalon|Guinea)$/,
+    'sierra-leone': /^(Sierra Leone)$/,
+    'liberia': /^(Liberia)$/,
+    'malawi': /^(Nyasaland|Malawi)$/,
+    'botswana': /^(Ngwato|Botswana)$/,
+    'namibie': /^(German South-West Africa|Namibia)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
@@ -147,7 +157,8 @@ HISTOIRE.carte = (function () {
   var PERIODES = {
     'bulgarie|Bulgars': [800, 9999],
     'mali|Ghana': [0, 1300], 'ghana|Ghana': [1900, 9999],
-    'nigeria|Benin': [0, 1800], 'rdc|Congo': [0, 1890]
+    'nigeria|Benin': [0, 1800], 'rdc|Congo': [0, 1890],
+    'benin|Benin': [1940, 9999], 'congo|Congo': [1940, 9999]
   };
   function teste(id, nom) {
     var re = CORRESPONDANCES[id];
