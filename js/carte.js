@@ -120,6 +120,15 @@ HISTOIRE.carte = (function () {
     'tadjikistan': /^(Tajikistan)$/,
     'turkmenistan': /^(Turkmenistan)$/,
     'bhoutan': /^(Bhutan)$/,
+    'libye': /^(Tripolitania|Cyrenaica|Libya|Libya \(IT\)|Fezzan \(Frech Lybia\)|Tripolitana \(UK Lybia\))$/,
+    'cameroun': /^(Kamerun|French Cameroons|Southern Cameroon|Cameroon)$/,
+    'madagascar': /^(Malagasy|Merina Kingdom|Imerina|Madagascar|Madagascar \(France\))$/,
+    'zimbabwe': /^(Great Zimbabwe|Mwenemutapa|Southern Rhodesia|Rhodesia|Zimbabwe)$/,
+    'mozambique': /^(Mozambique|Mozambique \(Portugal\))$/,
+    'burkina-faso': /^(Mossi States|Burkina Faso)$/,
+    'niger': /^(Niger)$/,
+    'tchad': /^(Kanem|Kanem-Bornu|Wadai|Wadai Empire|Chad)$/,
+    'zambie': /^(Barotse|Lozi|Northern Rhodesia|Zambia)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
