@@ -149,6 +149,14 @@ HISTOIRE.carte = (function () {
     'malawi': /^(Nyasaland|Malawi)$/,
     'botswana': /^(Ngwato|Botswana)$/,
     'namibie': /^(German South-West Africa|Namibia)$/,
+    'slovenie': /^(Slovenia)$/,
+    'macedoine-du-nord': /^(Macedonia)$/,
+    'montenegro': /^(Montenegro)$/,
+    'islande': /^(Icelandic Commonwealth|Iceland)$/,
+    'luxembourg': /^(Luxembourg)$/,
+    'malte': /^(Malta)$/,
+    'chypre': /^(Cyprus)$/,
+    'andorre': /^(Andorra)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
