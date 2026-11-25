@@ -4,7 +4,10 @@ window.HISTOIRE = {
   pays: [],
   cartes: {},
   anneesCartes: [],
-  ajouterPays: function (p) { this.pays.push(p); }
+  empires: [],
+  empiresTransversal: null,
+  ajouterPays: function (p) { this.pays.push(p); },
+  ajouterEmpire: function (e) { this.empires.push(e); }
 };
 
 /* Couleurs claires par continent, utilisees uniquement sur la carte et la frise.

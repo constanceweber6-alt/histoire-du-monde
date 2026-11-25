@@ -34,6 +34,7 @@
         '<div class="cartes">' +
           '<a class="carte carte-noire" href="#/carte"><h3>Explorer la carte</h3><p>Faites défiler deux mille ans de frontières et retrouvez les événements là où ils ont eu lieu.</p><span class="bouton bouton-blanc">Ouvrir la carte</span></a>' +
           '<a class="carte" href="#/pays"><h3>Lire par pays</h3><p>Chaque pays découpé en phases : le récit, ce qui fait consensus, ce qui fait débat, ce qu\'on raconte moins.</p><span class="bouton bouton-gris">Choisir un pays</span></a>' +
+          '<a class="carte" href="#/empires"><h3>Royaumes disparus</h3><p>Incas, Rome, Mongols, Mali, Angkor : comment ils ont dominé, pourquoi ils sont tombés, et ce qu\'on en retient.</p><span class="bouton bouton-gris">Voir les empires</span></a>' +
         '</div>' +
         '<p class="note">Les grandes lignes font souvent consensus. Les causes, les chiffres et les jugements beaucoup moins : c\'est ce que ce site veut montrer.</p>' +
         '<div class="chiffres">' +
@@ -103,7 +104,7 @@
   }
 
   function rendreActeurs(p, i) {
-    var liste = (HISTOIRE.acteurs && HISTOIRE.acteurs[p.id] && HISTOIRE.acteurs[p.id][i]) || [];
+    var liste = (p.phases[i] && p.phases[i].acteurs) || (HISTOIRE.acteurs && HISTOIRE.acteurs[p.id] && HISTOIRE.acteurs[p.id][i]) || [];
     if (!liste.length) return '';
     return '<div class="bloc-titre acteurs">Les acteurs</div><div class="acteurs-grille apparait">' +
       liste.map(function (a) {
@@ -112,11 +113,11 @@
       }).join('') + '</div>';
   }
 
-  function rendrePhase(p, ph, i) {
+  function rendrePhase(p, ph, i, sansCarte) {
     var evts = (ph.evenements || []).map(function (ev, j) {
       return '<li id="evt-' + i + '-' + j + '"><span class="annee">' + U.esc(U.annee(ev.annee)) + '</span>' + U.esc(ev.titre) +
         (ev.texte ? '<span class="evt-texte">' + U.esc(ev.texte) + '</span>' : '') +
-        (ev.lieu ? '<a class="voir-carte" href="#/carte?annee=' + Math.max(1, ev.annee) + '&pays=' + p.id + '">voir sur la carte</a>' : '') + '</li>';
+        (ev.lieu && !sansCarte ? '<a class="voir-carte" href="#/carte?annee=' + Math.max(1, ev.annee) + '&pays=' + p.id + '">voir sur la carte</a>' : '') + '</li>';
     }).join('');
     return '<section class="phase" id="phase-' + i + '">' +
       '<div class="conteneur">' +
@@ -209,6 +210,98 @@
     }
   }
 
+  /* ---------- Royaumes et empires disparus ---------- */
+  function carteEmpire(e, noire) {
+    return '<a class="carte carte-pays' + (noire ? ' carte-noire' : '') + '" href="#/empires/' + e.id + '">' +
+      '<span class="periode">' + U.esc(U.annee(e.debut)) + ' à ' + U.esc(U.annee(e.fin)) + ' · ' + U.esc(e.aire) + '</span>' +
+      '<h3>' + U.esc(e.nom) + '</h3><p>' + U.esc(e.accroche) + '</p>' +
+      '<span class="compteurs">' + (e.lecons || []).length + ' leçons discutées</span></a>';
+  }
+
+  function rendreLecons(e) {
+    if (!(e.lecons || []).length) return '';
+    return '<div class="bloc-titre lecons-titre">Les leçons qu\'on en tire</div>' +
+      '<p class="discret apparait" style="max-width:760px;font-size:14px">Ces leçons sont des lectures du passé, pas des lois. Chacune est suivie de l\'objection qu\'on lui oppose le plus souvent.</p>' +
+      '<div class="lecons apparait">' + e.lecons.map(function (l, i) {
+        return '<div class="lecon"><span class="lecon-num">' + (i + 1) + '</span><h4>' + U.esc(l.titre) + '</h4><p>' + U.esc(l.texte) + '</p>' +
+          (l.objection ? '<p class="lecon-objection"><strong>L\'objection</strong>' + U.esc(l.objection) + '</p>' : '') + '</div>';
+      }).join('') + '</div>';
+  }
+
+  function listeEmpires() {
+    document.body.className = '';
+    var T = HISTOIRE.empiresTransversal || {};
+    var empires = HISTOIRE.empires.slice().sort(function (a, b) { return a.debut - b.debut; });
+    var min = -600, max = 1950;
+    function pos(a) { return Math.max(0, Math.min(100, (a - min) / (max - min) * 100)); }
+    var graduations = [-500, 1, 500, 1000, 1500, 1900].map(function (a) {
+      return '<span class="frise-emp-grad" style="left:' + pos(a) + '%">' + U.esc(a === 1 ? 'an 1' : U.annee(a)) + '</span>';
+    }).join('');
+    var barres = empires.map(function (e) {
+      var c = U.continent(e.region);
+      return '<a class="frise-emp-ligne" href="#/empires/' + e.id + '"><span class="frise-emp-nom">' + U.esc(e.nom) + '</span>' +
+        '<span class="frise-emp-piste"><i style="left:' + pos(e.debut) + '%;width:' + Math.max(0.8, pos(e.fin) - pos(e.debut)) + '%;background:' + c.tons[1] + '"></i></span></a>';
+    }).join('');
+    var debats = (T.debats || []).map(rendreDebat).join('');
+    var lecons = (T.lecons || []).map(function (l, i) {
+      return '<div class="lecon"><span class="lecon-num">' + (i + 1) + '</span><h4>' + U.esc(l.titre) + '</h4><p>' + U.esc(l.texte) + '</p>' +
+        (l.exemples ? '<p class="lecon-exemples">' + U.esc(l.exemples) + '</p>' : '') +
+        (l.objection ? '<p class="lecon-objection"><strong>L\'objection</strong>' + U.esc(l.objection) + '</p>' : '') + '</div>';
+    }).join('');
+    app.innerHTML =
+      '<section class="pointilles"><div class="entete-claire conteneur"><p class="surtitre">Royaumes et empires disparus</p><h1 class="titre-1">Ceux qui ont<br>régné, puis disparu</h1>' +
+      '<p class="chapo">' + U.esc(T.chapo || '') + '</p></div>' +
+      '<div class="conteneur">' +
+        '<div class="region-bloc apparait"><h2 class="titre-2">Sur la ligne du temps</h2><div class="frise-emp"><div class="frise-emp-axe">' + graduations + '</div>' + barres + '</div></div>' +
+        '<div class="region-bloc apparait"><h2 class="titre-2">Les empires</h2><div class="cartes">' + empires.map(function (e, i) { return carteEmpire(e, i === 0); }).join('') + '</div></div>' +
+        (lecons ? '<div class="region-bloc apparait"><h2 class="titre-2">Ce qui revient d\'un empire à l\'autre</h2>' +
+          '<p class="discret" style="max-width:760px">' + U.esc(T.avertissement || '') + '</p><div class="lecons claires">' + lecons + '</div></div>' : '') +
+        (debats ? '<div class="region-bloc apparait"><h2 class="titre-2">Pourquoi les empires tombent : le grand débat</h2><div class="debats-clairs">' + debats + '</div></div>' : '') +
+      '</div></section>';
+    animer();
+  }
+
+  function ficheEmpire(id) {
+    var e = HISTOIRE.empires.find(function (x) { return x.id === id; });
+    if (!e) return introuvable();
+    document.body.className = 'sombre';
+    var liste = HISTOIRE.empires.slice().sort(function (a, b) { return a.debut - b.debut; });
+    var idx = liste.indexOf(e);
+    var prec = liste[(idx - 1 + liste.length) % liste.length];
+    var suiv = liste[(idx + 1) % liste.length];
+    var paysLies = (e.paysActuels || []).map(function (pid) { var p = U.paysParId(pid); return p ? '<a href="#/pays/' + p.id + '">' + U.esc(p.nom) + '</a>' : ''; }).filter(Boolean).join(', ');
+    app.innerHTML =
+      '<header class="chapitre"><canvas></canvas>' +
+        '<div class="fil-ariane"><a href="#/empires">Royaumes disparus</a> / ' + U.esc(e.nom) + '</div>' +
+        '<p class="surtitre">' + U.esc(U.annee(e.debut)) + ' à ' + U.esc(U.annee(e.fin)) + ' · ' + U.esc(e.aire) + '</p>' +
+        '<h1 class="titre-geant">' + U.esc(e.nom) + '</h1>' +
+        '<p class="chapo">' + U.esc(e.intro) + '</p>' +
+        '<a class="pastille" href="#phase-0" data-ancre="phase-0" style="text-decoration:none">Commencer la lecture</a>' +
+      '</header>' +
+      '<nav class="sommaire" aria-label="Phases"><div class="conteneur">' +
+        e.phases.map(function (ph, i) { return '<a href="#phase-' + i + '" data-ancre="phase-' + i + '">' + (i + 1) + '. ' + U.esc(ph.titre) + '</a>'; }).join('') +
+        '<a href="#lecons" data-ancre="lecons">Les leçons</a>' +
+      '</div></nav>' +
+      e.phases.map(function (ph, i) { return rendrePhase(e, ph, i, true); }).join('') +
+      '<section class="phase" id="lecons"><div class="conteneur">' + rendreLecons(e) +
+        (paysLies ? '<p class="discret" style="margin-top:36px">Son territoire dans les fiches pays : ' + paysLies + '.</p>' : '') +
+      '</div></section>' +
+      '<div class="conteneur"><div class="pays-nav">' +
+        '<a class="bouton bouton-fantome" href="#/empires/' + prec.id + '">← ' + U.esc(prec.nom) + '</a>' +
+        '<a class="bouton bouton-blanc" href="#/empires">Tous les empires</a>' +
+        '<a class="bouton bouton-fantome" href="#/empires/' + suiv.id + '">' + U.esc(suiv.nom) + ' →</a>' +
+      '</div>' + (e.sources ? '<p class="discret" style="font-size:13px;margin-top:40px">Pour aller plus loin : ' + U.esc(e.sources) + '</p>' : '') + '</div>';
+    HISTOIRE.particules.lancer(app.querySelector('.chapitre canvas'));
+    app.querySelectorAll('[data-ancre]').forEach(function (a) {
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var cible = document.getElementById(a.dataset.ancre);
+        if (cible) cible.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    animer();
+  }
+
   /* ---------- Methode ---------- */
   function methode() {
     document.body.className = '';
@@ -231,6 +324,8 @@
           '<li><strong>Des pays qui n\'existaient pas.</strong> Parler de « l\'Allemagne » ou de « l\'Italie » au IIe siècle est un anachronisme. On suit le territoire actuel pour se repérer, sans prétendre que la nation existait déjà.</li>' +
           '<li><strong>Le débat n\'est pas le relativisme.</strong> Présenter deux positions ne veut pas dire qu\'elles se valent. Quand la recherche a tranché, la rubrique « Aujourd\'hui » le dit. Les faits établis (génocides, crimes de masse documentés) ne sont pas présentés comme des opinions.</li>' +
         '</ul>' +
+        '<h2>Les royaumes disparus</h2>' +
+        '<p>La page des empires disparus suit la même méthode, avec une rubrique en plus : les leçons qu\'on tire de leur chute. Chaque leçon est suivie de l\'objection qu\'on lui oppose, car les « leçons de l\'histoire » sont des interprétations, souvent utilisées pour défendre des causes actuelles.</p>' +
         '<h2>La carte</h2>' +
         '<p>Les frontières viennent du projet libre <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> d\'André Ourednik (licence GPL-3.0). Avant le XIXe siècle, une frontière nette est une simplification : les pouvoirs s\'exerçaient par zones d\'influence, tributs et allégeances plutôt que par des lignes.</p>' +
         '<h2>Contribuer</h2>' +
@@ -246,7 +341,7 @@
   /* ---------- Routeur ---------- */
   function route() {
     var h = location.hash || '#/';
-    if (/^#phase-\d+$/.test(h)) return; // ancre interne
+    if (/^#(phase-\d+|lecons)$/.test(h)) return; // ancre interne
     var parts = h.replace(/^#\/?/, '').split('?');
     var chemin = parts[0].split('/').filter(Boolean);
     var params = {};
@@ -267,18 +362,20 @@
     else if (nom === 'pays' && chemin[1]) fichePays(chemin[1], chemin[2] != null ? +chemin[2] : null, chemin[3] != null ? +chemin[3] : null, params.depuis != null ? params.depuis : null);
     else if (nom === 'pays') listePays();
     else if (nom === 'region') region(chemin[1]);
+    else if (nom === 'empires' && chemin[1]) ficheEmpire(chemin[1]);
+    else if (nom === 'empires') listeEmpires();
     else if (nom === 'methode') methode();
     else introuvable();
 
-    var titre = { accueil: '', carte: 'Carte', frise: 'Frise', pays: 'Pays', region: 'Région', methode: 'Méthode' }[nom];
-    var p = chemin[1] && nom === 'pays' ? U.paysParId(chemin[1]) : null;
+    var titre = { accueil: '', carte: 'Carte', frise: 'Frise', pays: 'Pays', region: 'Région', methode: 'Méthode', empires: 'Royaumes disparus' }[nom];
+    var p = chemin[1] && nom === 'pays' ? U.paysParId(chemin[1]) : (chemin[1] && nom === 'empires' ? HISTOIRE.empires.find(function (x) { return x.id === chemin[1]; }) : null);
     document.title = (p ? p.nom + ' · ' : titre ? titre + ' · ' : '') + 'Zones grises';
   }
 
   var derniereRoute = null;
   window.addEventListener('hashchange', function () {
     // le replaceState de la carte ne declenche pas hashchange ; on ignore les ancres internes
-    if (/^#phase-\d+$/.test(location.hash)) return;
+    if (/^#(phase-\d+|lecons)$/.test(location.hash)) return;
     route();
   });
   route();
