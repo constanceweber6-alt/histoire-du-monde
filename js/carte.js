@@ -112,6 +112,14 @@ HISTOIRE.carte = (function () {
     'koweit': /^(Kuwait)$/,
     'nepal': /^(Nepal)$/,
     'sri-lanka': /^(Sinhalese kingdom|Sinhalese kingdoms|Kandy|Ceylon|Ceylon \(Dutch\)|Sri Lanka)$/,
+    'malaisie': /^(Malay|Malays|Malacca|Malaysian Islamic states|Malaya|Malaysia)$/,
+    'laos': /^(Laotian states|Laos)$/,
+    'taiwan': /^(Taiwanese Tribes|Eduria \(Taiwano\)|Dutch Formosa|Taiwan)$/,
+    'brunei': /^(Brunei)$/,
+    'kirghizistan': /^(Kyrgyzstan)$/,
+    'tadjikistan': /^(Tajikistan)$/,
+    'turkmenistan': /^(Turkmenistan)$/,
+    'bhoutan': /^(Bhutan)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
