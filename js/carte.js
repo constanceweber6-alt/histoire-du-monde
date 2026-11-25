@@ -157,6 +157,15 @@ HISTOIRE.carte = (function () {
     'malte': /^(Malta)$/,
     'chypre': /^(Cyprus)$/,
     'andorre': /^(Andorra)$/,
+    'erythree': /^(Eritrea \(Italy\)|Eritrea)$/,
+    'djibouti': /^(French Somaliland|Djibouti)$/,
+    'burundi': /^(Burundi)$/,
+    'mauritanie': /^(Mauritania)$/,
+    'gambie': /^(Gambia|Gambia, The)$/,
+    'guinee-bissau': /^(Portuguese Guinea|Guinea-Bissau|Guinea-Bissau \(Portugal\))$/,
+    'centrafrique': /^(Central African Republic)$/,
+    'guinee-equatoriale': /^(Spanish Guinea|Equatorial Guinea)$/,
+    'lesotho': /^(Basutoland|Lesotho)$/,
     'afrique-du-sud': /^(Cape Colony|Zulu|Zululand|Natal|Transvaal|Orange Free State|Union of South Africa|South Africa)$/
   };
 
